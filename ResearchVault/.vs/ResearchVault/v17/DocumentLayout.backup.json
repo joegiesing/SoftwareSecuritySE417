@@ -1,0 +1,533 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\josep\\OneDrive\\Desktop\\ResearchVaultRepo\\ResearchVault\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{CDF83D59-ABB4-4F64-B811-5B18CC5C302F}|ResearchVault.csproj|c:\\users\\josep\\onedrive\\desktop\\researchvaultrepo\\researchvault\\models\\userpassdataaccesslayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CDF83D59-ABB4-4F64-B811-5B18CC5C302F}|ResearchVault.csproj|solutionrelative:models\\userpassdataaccesslayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CDF83D59-ABB4-4F64-B811-5B18CC5C302F}|ResearchVault.csproj|c:\\users\\josep\\onedrive\\desktop\\researchvaultrepo\\researchvault\\models\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CDF83D59-ABB4-4F64-B811-5B18CC5C302F}|ResearchVault.csproj|solutionrelative:models\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CDF83D59-ABB4-4F64-B811-5B18CC5C302F}|ResearchVault.csproj|c:\\users\\josep\\onedrive\\desktop\\researchvaultrepo\\researchvault\\models\\userdataaccesslayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CDF83D59-ABB4-4F64-B811-5B18CC5C302F}|ResearchVault.csproj|solutionrelative:models\\userdataaccesslayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CDF83D59-ABB4-4F64-B811-5B18CC5C302F}|ResearchVault.csproj|c:\\users\\josep\\onedrive\\desktop\\researchvaultrepo\\researchvault\\models\\sourcemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CDF83D59-ABB4-4F64-B811-5B18CC5C302F}|ResearchVault.csproj|solutionrelative:models\\sourcemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CDF83D59-ABB4-4F64-B811-5B18CC5C302F}|ResearchVault.csproj|c:\\users\\josep\\onedrive\\desktop\\researchvaultrepo\\researchvault\\models\\sourcedataaccesslayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CDF83D59-ABB4-4F64-B811-5B18CC5C302F}|ResearchVault.csproj|solutionrelative:models\\sourcedataaccesslayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CDF83D59-ABB4-4F64-B811-5B18CC5C302F}|ResearchVault.csproj|c:\\users\\josep\\onedrive\\desktop\\researchvaultrepo\\researchvault\\pages\\searchsource.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CDF83D59-ABB4-4F64-B811-5B18CC5C302F}|ResearchVault.csproj|solutionrelative:pages\\searchsource.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CDF83D59-ABB4-4F64-B811-5B18CC5C302F}|ResearchVault.csproj|c:\\users\\josep\\onedrive\\desktop\\researchvaultrepo\\researchvault\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CDF83D59-ABB4-4F64-B811-5B18CC5C302F}|ResearchVault.csproj|solutionrelative:pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CDF83D59-ABB4-4F64-B811-5B18CC5C302F}|ResearchVault.csproj|c:\\users\\josep\\onedrive\\desktop\\researchvaultrepo\\researchvault\\researchvault.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{CDF83D59-ABB4-4F64-B811-5B18CC5C302F}|ResearchVault.csproj|solutionrelative:researchvault.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CDF83D59-ABB4-4F64-B811-5B18CC5C302F}|ResearchVault.csproj|c:\\users\\josep\\onedrive\\desktop\\researchvaultrepo\\researchvault\\models\\filtermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CDF83D59-ABB4-4F64-B811-5B18CC5C302F}|ResearchVault.csproj|solutionrelative:models\\filtermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CDF83D59-ABB4-4F64-B811-5B18CC5C302F}|ResearchVault.csproj|c:\\users\\josep\\onedrive\\desktop\\researchvaultrepo\\researchvault\\pages\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CDF83D59-ABB4-4F64-B811-5B18CC5C302F}|ResearchVault.csproj|solutionrelative:pages\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CDF83D59-ABB4-4F64-B811-5B18CC5C302F}|ResearchVault.csproj|c:\\users\\josep\\onedrive\\desktop\\researchvaultrepo\\researchvault\\models\\userpassmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CDF83D59-ABB4-4F64-B811-5B18CC5C302F}|ResearchVault.csproj|solutionrelative:models\\userpassmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CDF83D59-ABB4-4F64-B811-5B18CC5C302F}|ResearchVault.csproj|c:\\users\\josep\\onedrive\\desktop\\researchvaultrepo\\researchvault\\pages\\admin\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CDF83D59-ABB4-4F64-B811-5B18CC5C302F}|ResearchVault.csproj|solutionrelative:pages\\admin\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CDF83D59-ABB4-4F64-B811-5B18CC5C302F}|ResearchVault.csproj|c:\\users\\josep\\onedrive\\desktop\\researchvaultrepo\\researchvault\\pages\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CDF83D59-ABB4-4F64-B811-5B18CC5C302F}|ResearchVault.csproj|solutionrelative:pages\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\josep\\OneDrive\\Desktop\\.NET Winter 2025\\SE256_Lab_JGiesing\\App_Code\\EMediaItem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CDF83D59-ABB4-4F64-B811-5B18CC5C302F}|ResearchVault.csproj|c:\\users\\josep\\onedrive\\desktop\\researchvaultrepo\\researchvault\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{CDF83D59-ABB4-4F64-B811-5B18CC5C302F}|ResearchVault.csproj|solutionrelative:wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CDF83D59-ABB4-4F64-B811-5B18CC5C302F}|ResearchVault.csproj|c:\\users\\josep\\onedrive\\desktop\\researchvaultrepo\\researchvault\\pages\\admin\\controlpanel.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CDF83D59-ABB4-4F64-B811-5B18CC5C302F}|ResearchVault.csproj|solutionrelative:pages\\admin\\controlpanel.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CDF83D59-ABB4-4F64-B811-5B18CC5C302F}|ResearchVault.csproj|c:\\users\\josep\\onedrive\\desktop\\researchvaultrepo\\researchvault\\pages\\searchsource.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CDF83D59-ABB4-4F64-B811-5B18CC5C302F}|ResearchVault.csproj|solutionrelative:pages\\searchsource.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CDF83D59-ABB4-4F64-B811-5B18CC5C302F}|ResearchVault.csproj|c:\\users\\josep\\onedrive\\desktop\\researchvaultrepo\\researchvault\\pages\\viewsource.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CDF83D59-ABB4-4F64-B811-5B18CC5C302F}|ResearchVault.csproj|solutionrelative:pages\\viewsource.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CDF83D59-ABB4-4F64-B811-5B18CC5C302F}|ResearchVault.csproj|c:\\users\\josep\\onedrive\\desktop\\researchvaultrepo\\researchvault\\pages\\viewsource.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CDF83D59-ABB4-4F64-B811-5B18CC5C302F}|ResearchVault.csproj|solutionrelative:pages\\viewsource.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CDF83D59-ABB4-4F64-B811-5B18CC5C302F}|ResearchVault.csproj|c:\\users\\josep\\onedrive\\desktop\\researchvaultrepo\\researchvault\\models\\validationlibrary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CDF83D59-ABB4-4F64-B811-5B18CC5C302F}|ResearchVault.csproj|solutionrelative:models\\validationlibrary.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CDF83D59-ABB4-4F64-B811-5B18CC5C302F}|ResearchVault.csproj|c:\\users\\josep\\onedrive\\desktop\\researchvaultrepo\\researchvault\\pages\\admin\\createacc.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CDF83D59-ABB4-4F64-B811-5B18CC5C302F}|ResearchVault.csproj|solutionrelative:pages\\admin\\createacc.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CDF83D59-ABB4-4F64-B811-5B18CC5C302F}|ResearchVault.csproj|c:\\users\\josep\\onedrive\\desktop\\researchvaultrepo\\researchvault\\pages\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CDF83D59-ABB4-4F64-B811-5B18CC5C302F}|ResearchVault.csproj|solutionrelative:pages\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CDF83D59-ABB4-4F64-B811-5B18CC5C302F}|ResearchVault.csproj|c:\\users\\josep\\onedrive\\desktop\\researchvaultrepo\\researchvault\\pages\\editsource.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CDF83D59-ABB4-4F64-B811-5B18CC5C302F}|ResearchVault.csproj|solutionrelative:pages\\editsource.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CDF83D59-ABB4-4F64-B811-5B18CC5C302F}|ResearchVault.csproj|c:\\users\\josep\\onedrive\\desktop\\researchvaultrepo\\researchvault\\pages\\editsource.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CDF83D59-ABB4-4F64-B811-5B18CC5C302F}|ResearchVault.csproj|solutionrelative:pages\\editsource.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CDF83D59-ABB4-4F64-B811-5B18CC5C302F}|ResearchVault.csproj|c:\\users\\josep\\onedrive\\desktop\\researchvaultrepo\\researchvault\\pages\\admin\\controlpanel.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CDF83D59-ABB4-4F64-B811-5B18CC5C302F}|ResearchVault.csproj|solutionrelative:pages\\admin\\controlpanel.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CDF83D59-ABB4-4F64-B811-5B18CC5C302F}|ResearchVault.csproj|c:\\users\\josep\\onedrive\\desktop\\researchvaultrepo\\researchvault\\pages\\admin\\usersettings.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CDF83D59-ABB4-4F64-B811-5B18CC5C302F}|ResearchVault.csproj|solutionrelative:pages\\admin\\usersettings.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CDF83D59-ABB4-4F64-B811-5B18CC5C302F}|ResearchVault.csproj|c:\\users\\josep\\onedrive\\desktop\\researchvaultrepo\\researchvault\\pages\\admin\\createacc.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CDF83D59-ABB4-4F64-B811-5B18CC5C302F}|ResearchVault.csproj|solutionrelative:pages\\admin\\createacc.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CDF83D59-ABB4-4F64-B811-5B18CC5C302F}|ResearchVault.csproj|c:\\users\\josep\\onedrive\\desktop\\researchvaultrepo\\researchvault\\pages\\admin\\usersettings.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CDF83D59-ABB4-4F64-B811-5B18CC5C302F}|ResearchVault.csproj|solutionrelative:pages\\admin\\usersettings.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CDF83D59-ABB4-4F64-B811-5B18CC5C302F}|ResearchVault.csproj|c:\\users\\josep\\onedrive\\desktop\\researchvaultrepo\\researchvault\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CDF83D59-ABB4-4F64-B811-5B18CC5C302F}|ResearchVault.csproj|solutionrelative:startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CDF83D59-ABB4-4F64-B811-5B18CC5C302F}|ResearchVault.csproj|c:\\users\\josep\\onedrive\\desktop\\researchvaultrepo\\researchvault\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{CDF83D59-ABB4-4F64-B811-5B18CC5C302F}|ResearchVault.csproj|solutionrelative:wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CDF83D59-ABB4-4F64-B811-5B18CC5C302F}|ResearchVault.csproj|c:\\users\\josep\\onedrive\\desktop\\researchvaultrepo\\researchvault\\wwwroot\\images\\heart-fill.svg||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{CDF83D59-ABB4-4F64-B811-5B18CC5C302F}|ResearchVault.csproj|solutionrelative:wwwroot\\images\\heart-fill.svg||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 11,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\josep\\OneDrive\\Desktop\\ResearchVaultRepo\\ResearchVault\\Pages\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Pages\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\josep\\OneDrive\\Desktop\\ResearchVaultRepo\\ResearchVault\\Pages\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Pages\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGMAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-29T13:56:55.538Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "ControlPanel.cshtml",
+              "DocumentMoniker": "C:\\Users\\josep\\OneDrive\\Desktop\\ResearchVaultRepo\\ResearchVault\\Pages\\Admin\\ControlPanel.cshtml",
+              "RelativeDocumentMoniker": "Pages\\Admin\\ControlPanel.cshtml",
+              "ToolTip": "C:\\Users\\josep\\OneDrive\\Desktop\\ResearchVaultRepo\\ResearchVault\\Pages\\Admin\\ControlPanel.cshtml",
+              "RelativeToolTip": "Pages\\Admin\\ControlPanel.cshtml",
+              "ViewState": "AgIAAJEAAAAAAAAAAAAmwJ0AAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-29T14:00:00.86Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "ViewSource.cshtml",
+              "DocumentMoniker": "C:\\Users\\josep\\OneDrive\\Desktop\\ResearchVaultRepo\\ResearchVault\\Pages\\ViewSource.cshtml",
+              "RelativeDocumentMoniker": "Pages\\ViewSource.cshtml",
+              "ToolTip": "C:\\Users\\josep\\OneDrive\\Desktop\\ResearchVaultRepo\\ResearchVault\\Pages\\ViewSource.cshtml",
+              "RelativeToolTip": "Pages\\ViewSource.cshtml",
+              "ViewState": "AgIAAH4AAAAAAAAAAAAAAHsAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-29T13:38:38.818Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "ViewSource.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\josep\\OneDrive\\Desktop\\ResearchVaultRepo\\ResearchVault\\Pages\\ViewSource.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\ViewSource.cshtml.cs",
+              "ToolTip": "C:\\Users\\josep\\OneDrive\\Desktop\\ResearchVaultRepo\\ResearchVault\\Pages\\ViewSource.cshtml.cs",
+              "RelativeToolTip": "Pages\\ViewSource.cshtml.cs",
+              "ViewState": "AgIAAFkAAAAAAAAAAAAswGYAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-29T14:25:29.41Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "SearchSource.cshtml",
+              "DocumentMoniker": "C:\\Users\\josep\\OneDrive\\Desktop\\ResearchVaultRepo\\ResearchVault\\Pages\\SearchSource.cshtml",
+              "RelativeDocumentMoniker": "Pages\\SearchSource.cshtml",
+              "ToolTip": "C:\\Users\\josep\\OneDrive\\Desktop\\ResearchVaultRepo\\ResearchVault\\Pages\\SearchSource.cshtml",
+              "RelativeToolTip": "Pages\\SearchSource.cshtml",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAAAAYBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-29T13:34:34.679Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "SearchSource.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\josep\\OneDrive\\Desktop\\ResearchVaultRepo\\ResearchVault\\Pages\\SearchSource.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\SearchSource.cshtml.cs",
+              "ToolTip": "C:\\Users\\josep\\OneDrive\\Desktop\\ResearchVaultRepo\\ResearchVault\\Pages\\SearchSource.cshtml.cs",
+              "RelativeToolTip": "Pages\\SearchSource.cshtml.cs",
+              "ViewState": "AgIAAIUAAAAAAAAAAAAAwJQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-13T06:35:29.98Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\josep\\OneDrive\\Desktop\\ResearchVaultRepo\\ResearchVault\\Pages\\Index.cshtml",
+              "RelativeDocumentMoniker": "Pages\\Index.cshtml",
+              "ToolTip": "C:\\Users\\josep\\OneDrive\\Desktop\\ResearchVaultRepo\\ResearchVault\\Pages\\Index.cshtml",
+              "RelativeToolTip": "Pages\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHUAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-29T13:30:03.887Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Index.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\josep\\OneDrive\\Desktop\\ResearchVaultRepo\\ResearchVault\\Pages\\Index.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\Index.cshtml.cs",
+              "ToolTip": "C:\\Users\\josep\\OneDrive\\Desktop\\ResearchVaultRepo\\ResearchVault\\Pages\\Index.cshtml.cs",
+              "RelativeToolTip": "Pages\\Index.cshtml.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAxwC4AAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-16T08:01:56.222Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "ControlPanel.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\josep\\OneDrive\\Desktop\\ResearchVaultRepo\\ResearchVault\\Pages\\Admin\\ControlPanel.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\Admin\\ControlPanel.cshtml.cs",
+              "ToolTip": "C:\\Users\\josep\\OneDrive\\Desktop\\ResearchVaultRepo\\ResearchVault\\Pages\\Admin\\ControlPanel.cshtml.cs",
+              "RelativeToolTip": "Pages\\Admin\\ControlPanel.cshtml.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAwBQAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-29T14:25:08.208Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UserPassDataAccessLayer.cs",
+              "DocumentMoniker": "C:\\Users\\josep\\OneDrive\\Desktop\\ResearchVaultRepo\\ResearchVault\\Models\\UserPassDataAccessLayer.cs",
+              "RelativeDocumentMoniker": "Models\\UserPassDataAccessLayer.cs",
+              "ToolTip": "C:\\Users\\josep\\OneDrive\\Desktop\\ResearchVaultRepo\\ResearchVault\\Models\\UserPassDataAccessLayer.cs",
+              "RelativeToolTip": "Models\\UserPassDataAccessLayer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwBYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-05T18:21:12.651Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "site.css",
+              "DocumentMoniker": "C:\\Users\\josep\\OneDrive\\Desktop\\ResearchVaultRepo\\ResearchVault\\wwwroot\\css\\site.css",
+              "RelativeDocumentMoniker": "wwwroot\\css\\site.css",
+              "ToolTip": "C:\\Users\\josep\\OneDrive\\Desktop\\ResearchVaultRepo\\ResearchVault\\wwwroot\\css\\site.css",
+              "RelativeToolTip": "wwwroot\\css\\site.css",
+              "ViewState": "AgIAAHIAAAAAAAAAAAAAAG0AAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-09-05T12:54:55.839Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SourceModel.cs",
+              "DocumentMoniker": "C:\\Users\\josep\\OneDrive\\Desktop\\ResearchVaultRepo\\ResearchVault\\Models\\SourceModel.cs",
+              "RelativeDocumentMoniker": "Models\\SourceModel.cs",
+              "ToolTip": "C:\\Users\\josep\\OneDrive\\Desktop\\ResearchVaultRepo\\ResearchVault\\Models\\SourceModel.cs",
+              "RelativeToolTip": "Models\\SourceModel.cs",
+              "ViewState": "AgIAAEkAAAAAAAAAAAA8wAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-30T00:09:43.85Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UserModel.cs",
+              "DocumentMoniker": "C:\\Users\\josep\\OneDrive\\Desktop\\ResearchVaultRepo\\ResearchVault\\Models\\UserModel.cs",
+              "RelativeDocumentMoniker": "Models\\UserModel.cs",
+              "ToolTip": "C:\\Users\\josep\\OneDrive\\Desktop\\ResearchVaultRepo\\ResearchVault\\Models\\UserModel.cs",
+              "RelativeToolTip": "Models\\UserModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-02T19:24:43.452Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ResearchVault.csproj",
+              "DocumentMoniker": "C:\\Users\\josep\\OneDrive\\Desktop\\ResearchVaultRepo\\ResearchVault\\ResearchVault.csproj",
+              "RelativeDocumentMoniker": "ResearchVault.csproj",
+              "ToolTip": "C:\\Users\\josep\\OneDrive\\Desktop\\ResearchVaultRepo\\ResearchVault\\ResearchVault.csproj",
+              "RelativeToolTip": "ResearchVault.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-09-16T20:06:43.041Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SourceDataAccessLayer.cs",
+              "DocumentMoniker": "C:\\Users\\josep\\OneDrive\\Desktop\\ResearchVaultRepo\\ResearchVault\\Models\\SourceDataAccessLayer.cs",
+              "RelativeDocumentMoniker": "Models\\SourceDataAccessLayer.cs",
+              "ToolTip": "C:\\Users\\josep\\OneDrive\\Desktop\\ResearchVaultRepo\\ResearchVault\\Models\\SourceDataAccessLayer.cs",
+              "RelativeToolTip": "Models\\SourceDataAccessLayer.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAYwC0AAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-05T18:07:28.331Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UserDataAccessLayer.cs",
+              "DocumentMoniker": "C:\\Users\\josep\\OneDrive\\Desktop\\ResearchVaultRepo\\ResearchVault\\Models\\UserDataAccessLayer.cs",
+              "RelativeDocumentMoniker": "Models\\UserDataAccessLayer.cs",
+              "ToolTip": "C:\\Users\\josep\\OneDrive\\Desktop\\ResearchVaultRepo\\ResearchVault\\Models\\UserDataAccessLayer.cs",
+              "RelativeToolTip": "Models\\UserDataAccessLayer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFYAAABXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-02T19:21:08.646Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "UserPassModel.cs",
+              "DocumentMoniker": "C:\\Users\\josep\\OneDrive\\Desktop\\ResearchVaultRepo\\ResearchVault\\Models\\UserPassModel.cs",
+              "RelativeDocumentMoniker": "Models\\UserPassModel.cs",
+              "ToolTip": "C:\\Users\\josep\\OneDrive\\Desktop\\ResearchVaultRepo\\ResearchVault\\Models\\UserPassModel.cs",
+              "RelativeToolTip": "Models\\UserPassModel.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAzwBcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-05T17:58:13.28Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "FilterModel.cs",
+              "DocumentMoniker": "C:\\Users\\josep\\OneDrive\\Desktop\\ResearchVaultRepo\\ResearchVault\\Models\\FilterModel.cs",
+              "RelativeDocumentMoniker": "Models\\FilterModel.cs",
+              "ToolTip": "C:\\Users\\josep\\OneDrive\\Desktop\\ResearchVaultRepo\\ResearchVault\\Models\\FilterModel.cs",
+              "RelativeToolTip": "Models\\FilterModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-23T02:21:12.627Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Index.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\josep\\OneDrive\\Desktop\\ResearchVaultRepo\\ResearchVault\\Pages\\Admin\\Index.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\Admin\\Index.cshtml.cs",
+              "ToolTip": "C:\\Users\\josep\\OneDrive\\Desktop\\ResearchVaultRepo\\ResearchVault\\Pages\\Admin\\Index.cshtml.cs",
+              "RelativeToolTip": "Pages\\Admin\\Index.cshtml.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-02T22:58:23.633Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\josep\\OneDrive\\Desktop\\ResearchVaultRepo\\ResearchVault\\Pages\\Admin\\Index.cshtml",
+              "RelativeDocumentMoniker": "Pages\\Admin\\Index.cshtml",
+              "ToolTip": "C:\\Users\\josep\\OneDrive\\Desktop\\ResearchVaultRepo\\ResearchVault\\Pages\\Admin\\Index.cshtml",
+              "RelativeToolTip": "Pages\\Admin\\Index.cshtml",
+              "ViewState": "AgIAADAAAAAAAAAAAAAAAF0AAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-16T10:21:21.998Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "EMediaItem.cs",
+              "DocumentMoniker": "C:\\Users\\josep\\OneDrive\\Desktop\\.NET Winter 2025\\SE256_Lab_JGiesing\\App_Code\\EMediaItem.cs",
+              "RelativeDocumentMoniker": "..\\..\\.NET Winter 2025\\SE256_Lab_JGiesing\\App_Code\\EMediaItem.cs",
+              "ToolTip": "C:\\Users\\josep\\OneDrive\\Desktop\\.NET Winter 2025\\SE256_Lab_JGiesing\\App_Code\\EMediaItem.cs",
+              "RelativeToolTip": "..\\..\\.NET Winter 2025\\SE256_Lab_JGiesing\\App_Code\\EMediaItem.cs",
+              "ViewState": "AgIAAJcAAAAAAAAAAAAAAJ4AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-10T21:57:51.271Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "ValidationLibrary.cs",
+              "DocumentMoniker": "C:\\Users\\josep\\OneDrive\\Desktop\\ResearchVaultRepo\\ResearchVault\\Models\\ValidationLibrary.cs",
+              "RelativeDocumentMoniker": "Models\\ValidationLibrary.cs",
+              "ToolTip": "C:\\Users\\josep\\OneDrive\\Desktop\\ResearchVaultRepo\\ResearchVault\\Models\\ValidationLibrary.cs",
+              "RelativeToolTip": "Models\\ValidationLibrary.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-30T00:14:14.884Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "CreateAcc.cshtml",
+              "DocumentMoniker": "C:\\Users\\josep\\OneDrive\\Desktop\\ResearchVaultRepo\\ResearchVault\\Pages\\Admin\\CreateAcc.cshtml",
+              "RelativeDocumentMoniker": "Pages\\Admin\\CreateAcc.cshtml",
+              "ToolTip": "C:\\Users\\josep\\OneDrive\\Desktop\\ResearchVaultRepo\\ResearchVault\\Pages\\Admin\\CreateAcc.cshtml",
+              "RelativeToolTip": "Pages\\Admin\\CreateAcc.cshtml",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAAGQAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-29T13:45:43.539Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "EditSource.cshtml",
+              "DocumentMoniker": "C:\\Users\\josep\\OneDrive\\Desktop\\ResearchVaultRepo\\ResearchVault\\Pages\\EditSource.cshtml",
+              "RelativeDocumentMoniker": "Pages\\EditSource.cshtml",
+              "ToolTip": "C:\\Users\\josep\\OneDrive\\Desktop\\ResearchVaultRepo\\ResearchVault\\Pages\\EditSource.cshtml",
+              "RelativeToolTip": "Pages\\EditSource.cshtml",
+              "ViewState": "AgIAAFoAAAAAAAAAAIBJwAEBAABPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-17T22:09:11.34Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "UserSettings.cshtml",
+              "DocumentMoniker": "C:\\Users\\josep\\OneDrive\\Desktop\\ResearchVaultRepo\\ResearchVault\\Pages\\Admin\\UserSettings.cshtml",
+              "RelativeDocumentMoniker": "Pages\\Admin\\UserSettings.cshtml",
+              "ToolTip": "C:\\Users\\josep\\OneDrive\\Desktop\\ResearchVaultRepo\\ResearchVault\\Pages\\Admin\\UserSettings.cshtml",
+              "RelativeToolTip": "Pages\\Admin\\UserSettings.cshtml",
+              "ViewState": "AgIAAE4AAAAAAAAAAIBJwGUAAAChAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-18T23:31:30.339Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "EditSource.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\josep\\OneDrive\\Desktop\\ResearchVaultRepo\\ResearchVault\\Pages\\EditSource.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\EditSource.cshtml.cs",
+              "ToolTip": "C:\\Users\\josep\\OneDrive\\Desktop\\ResearchVaultRepo\\ResearchVault\\Pages\\EditSource.cshtml.cs",
+              "RelativeToolTip": "Pages\\EditSource.cshtml.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAIBJwEQAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-17T22:07:14.456Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "UserSettings.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\josep\\OneDrive\\Desktop\\ResearchVaultRepo\\ResearchVault\\Pages\\Admin\\UserSettings.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\Admin\\UserSettings.cshtml.cs",
+              "ToolTip": "C:\\Users\\josep\\OneDrive\\Desktop\\ResearchVaultRepo\\ResearchVault\\Pages\\Admin\\UserSettings.cshtml.cs",
+              "RelativeToolTip": "Pages\\Admin\\UserSettings.cshtml.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAAwBwAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-19T08:11:24.571Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "CreateAcc.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\josep\\OneDrive\\Desktop\\ResearchVaultRepo\\ResearchVault\\Pages\\Admin\\CreateAcc.cshtml.cs",
+              "RelativeDocumentMoniker": "Pages\\Admin\\CreateAcc.cshtml.cs",
+              "ToolTip": "C:\\Users\\josep\\OneDrive\\Desktop\\ResearchVaultRepo\\ResearchVault\\Pages\\Admin\\CreateAcc.cshtml.cs",
+              "RelativeToolTip": "Pages\\Admin\\CreateAcc.cshtml.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAABRwCoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-05T12:23:51.915Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "Startup.cs",
+              "DocumentMoniker": "C:\\Users\\josep\\OneDrive\\Desktop\\ResearchVaultRepo\\ResearchVault\\Startup.cs",
+              "RelativeDocumentMoniker": "Startup.cs",
+              "ToolTip": "C:\\Users\\josep\\OneDrive\\Desktop\\ResearchVaultRepo\\ResearchVault\\Startup.cs",
+              "RelativeToolTip": "Startup.cs",
+              "ViewState": "AgIAADEAAAAAAAAAAAAkwEQAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-13T23:34:22.45Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "site.js",
+              "DocumentMoniker": "C:\\Users\\josep\\OneDrive\\Desktop\\ResearchVaultRepo\\ResearchVault\\wwwroot\\js\\site.js",
+              "RelativeDocumentMoniker": "wwwroot\\js\\site.js",
+              "ToolTip": "C:\\Users\\josep\\OneDrive\\Desktop\\ResearchVaultRepo\\ResearchVault\\wwwroot\\js\\site.js",
+              "RelativeToolTip": "wwwroot\\js\\site.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-09-12T12:42:25.16Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "heart-fill.svg",
+              "DocumentMoniker": "C:\\Users\\josep\\OneDrive\\Desktop\\ResearchVaultRepo\\ResearchVault\\wwwroot\\images\\heart-fill.svg",
+              "RelativeDocumentMoniker": "wwwroot\\images\\heart-fill.svg",
+              "ToolTip": "C:\\Users\\josep\\OneDrive\\Desktop\\ResearchVaultRepo\\ResearchVault\\wwwroot\\images\\heart-fill.svg",
+              "RelativeToolTip": "wwwroot\\images\\heart-fill.svg",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAGAAAAAAAAAA==",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAeqSURBVFhHxZdrbBTXFcd/89rZh9/GNrYX24AfxIApYGgINIZAISQhHygxUYrbkEKUBAmqCqlUatKqkaq0iLaUAgXRSkWtm5aCGgkclRL1AcQ0joJ52GCMsY2xWby21w/sfc7cfvDuer02Bqkf\u002BpeO5s6Zuef87znnnrkD/08IIaR4XSxOnjx5CHg7VieEmHCdahyWw1VVVe/EmInicQTExo0b49VPjJaWFjo779Hd7cbn8zVWVVXNjX9Hjlc8CqMrMTHNqcTAMMYkKSmJnp5eNm3aBFB67Nixhni7T0wABOHojkewFdl7ENnzDSTXImR3BQwcIBQIkJqaGk1JZWUlhmGUHjx4cByJJyYw3rlA\u002BK4jD21Fdn0Fmn\u002BM2XKeUE8xhmcayp0PUFu/SWBkBNM0o7MqKysJBoOlR44cORLRqdGnkyDCvsPj5Yt2D\u002B29w\u002Bialw25p0jnF4TcI5gPbHQk/xQ5YTFSACRDwaG3keHaQSjDT3p6GsePH8fv9xMIBCgsLMTlcr0J7AJ8Uxbhb/94UgRyFnLTPUJWdhLls4ZZaf0eyvDfoNHLuaHt/DPwCm6PxNwZ6VQuLyYzSedhXx8O1zaGMo4i6RY8/f14vV5sNhtZWdOprq5m\u002B/bt2YDrkSko2FOz6ONOlXZZZ/5zpbz2pSbWJG5F7f8rXPbxj8xqGkreRVqwlIcLy6n1qPzk9HUaOgewp6QiOXJRVBWHw4HT6aSoqAin04ndbo9E1sqjaqBgT80iSRbfKdmwmiWLM9mk/4486T1ov4R5ReX30/5ErfIsI0kZ2NOTyM9LQZtTwO2E6Rw6d5OmLjemZQGSHDEvhWV8D2EyAgV7arJAvPPaG8\u002B9uDRfZ504RpL0G2iqxbii8X7PYc5fScd17T6ehnYCA8NYJMhMt5Ock8bdxByO/quVXnUNms0a02pEdDwlAYR444X1C1YvztFTVprV2KVquHGB0HWVC85TbH25ksPfepY960qomG6j\u002B\u002BJVjL5BHA6FtDQrloxU2r06f748gqJqYZ\u002BjWzji95EECr57Oj83O7ni6YU5Bcv4hETlODSfx7ihcrP0DCuWPU9umh0kyEqy8fy8HDYuyWe45R5KMERigkZyisZQ9gw\u002Bu9PHvb6HMG4LPyYFkiQtW7Ekr7BcbmS6uh9aP0E0SPw6uI/iuRXRaMb2hOWF0xjp6UMOhLBq4HBoOBI0Hpoqdc3dYy\u002BGncdjXB/QNbns2ZlGbon0PnSehqtwds6vuFFfxrc/vIwQZjiUkY\u002BOQJIkZASKKoEMuiJhs6r0WxK55RoMkx3vPDYC4whMS8C5Qq3WpcEaaITP83fTVfg6S\u002BbZQEjjzIy6B0wIhgQ\u002BQyIQAkVVUC0KvoQEHgx0xMx4TA0IIeTX59\u002Bcbw2dkLg9hFsqor74XWS7DVmVkDVQYkTVQFNAUcGiSmgyBASYoRAYIUwkgiEjJu9Rn\u002BMIRDuh8PwydWDgfJvNcypJaYLj5XVIOWXIqsKnf/h0NPSmCUIgEAgznIaYdCAEZoxu3ow0dr1QNq4Idd3KgQMH2Llz50ygTSW8euH6\u002BqsW9d8q7TIfZf2QgcRikmQZw2uiAD/fUo4sRfbxmMFYPEo/8X4MkRTIkuLeLHk8geFBh7/GvgV3AAb9BkFM9GQHt\u002B6PFlS8k4guXh/7LB4TijDYvtmp6XVFWlfIv6\u002BtwtXjlObYRkLYLBqSrpA2K4u/1LWzZ0MZaphy5DTX89DL9z\u002B8RP9wgESrimmYpNg1clPtrF1YwLy8adF3H9kHFKOnHO8w8oDZW90w92PR7Wl39wfpHwniDZkk5mUwnGDnZ2eucss1gGEKhnxBLt5y8cFHX2DLzyPvpdWkbVhL8str8ThnMTjip3RGeozjSUIRiYAw\u002B7MIhgj0cSmj7u8nL6eXZM6yJqYrmpwgIZGWYMG5tAhPs4tDF1oZ8QwiKTK21CRsTxVCZhbDyPQNBeluczO7tZG3Ni9HQnpsCmQA0zssCMGQh7uZd\u002BrcSii4t\u002BXcpZr7bT109AXofhjE4wctP5vsigXMfHE52V99moTyeRi5TgaETEePnzsNnSTevMbWNWVkpTgmrDzidwKB4V7vZUyw2tGBwJKj264izB8lXvkPensXt11eWnoDdI6EcAclelDpVzQeGAodHh/NHUMMXL9FSddVdq0tYfHsrAmOR31ODIcM8Oaqu5\u002BbPi7a81jldGIDlHsHtzSsyw2wKk0hq74ey7VbeBrv0dzUw9WWAZpu9NJb30rgs2tk1F\u002BiQvPwXuVyls/JifcxSSTGxgrAXBCGn9qiQmauX8/Wr1VR/IPtfDlo2FdvWP0SzzxViG74Ufs8JHu6kVpbSOm9T6HmZVGmzqvLZrPpmRKSHZao4Qjia0BVNWprazl79ux\u002BoD/aCV8BDUgBkkc7PL6V\u002B/d3vrVjBwKBYUROtxNzGq\u002BPaiYJu9VqY9\u002B\u002BfezevXsm0Bb9FpyA4Alwn4DbJ\u002BDOCejSHQ5kRcE0I0bGjthj9xGJhFlgmgLTNMNfz3G/aHHzJzsRxSAyQdM0LBYLFosVi0WPiq7bJhWbzYbNZp9U4jHlsfzo0aOHhBBvx69gslVNNY69Ajx48ODM3r17twGuKQmEYQ3XhjX\u002Bwf8AH9AP\u002BP4L6fLiZGSxnbQAAAAASUVORK5CYII=",
+              "WhenOpened": "2024-09-09T00:37:32.325Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

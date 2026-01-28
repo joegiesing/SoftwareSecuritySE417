@@ -1,0 +1,170 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+
+/*a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}*/
+
+/* Provide sufficient contrast against white background */
+/*a {
+  color: #0366d6;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}*/
+
+
+
+/*change text after and before box */
+
+#first.false::after {
+
+}
+
+
+
+/*--------- Layout ---------*/
+
+@media (min-width: 768px) {
+  html {
+    min-height: 100vh;
+    font-size: 12px;
+  }
+}
+
+html {
+    min-height: 100vh;
+    min-width: 100%;
+    font-size: 16px;
+    position: relative;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+body {
+    /*margin-bottom: 60px;*/
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/*header{
+    flex: none;
+}*/
+
+main {
+    padding-right:5px;
+    display: flex;
+    flex-direction: column;
+    flex: auto;
+    height: 100%
+}
+
+footer {
+    flex: none;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px;
+}
+
+
+
+/*--------- Forms ---------*/
+
+.form-control:focus {
+    color: var(--bs-body-color);
+    background-color: var(--bs-body-bg);
+    border: 1.5px solid #099BED;
+    outline: 0;
+    box-shadow: none;
+}
+
+/*search bar width search page*/
+.sb-width {
+    width: 50%;
+}
+
+.errorMsg {
+    display: block;
+    height: 24px;
+    margin-left: 12px;
+}
+
+
+
+/*--------- Main colors ---------*/
+
+.bg-rv-main {
+/*    background-color: #850e0e;
+*/    background-color: #780707;
+}
+
+.bg-rv-second {
+    /*    background-color: #0acfe7;
+*/ /*background-color: #0cc2ea;*/
+    background-color: #099BED;
+}
+
+.rv-color-second {
+    /*    color: #0acfe7;
+*/ /*color: #0cc2ea;*/
+    color: #099BED;
+}
+
+.btn-rv-second {
+    background-color: #099BED;
+}
+
+
+
+/*--------- ???????? ---------*/
+
+.border-top {
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+    font-size: 1rem;
+    line-height: inherit;
+}
+
+
+
+
+/*--------- Favorite button ---------*/
+
+/*--------- Secondary button ---------*/
+
+.btn-rv2 {
+    background-color: #099BED;
+    border: none;
+}
+
+.btn-rv2:hover{
+
+}
+
+

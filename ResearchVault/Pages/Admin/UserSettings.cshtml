@@ -1,0 +1,115 @@
+﻿@page
+@model UserSettingsModel
+@{
+}
+
+
+<style>
+    /* .form-font-view {
+            font-family: Arial;
+        } */
+    .form-floating:focus-within {
+        z-index: 2;
+    }
+
+    .preview-border {
+        border: var(--bs-border-width) solid var(--bs-border-color);
+        border-radius: var(--bs-border-radius);
+    }
+</style>
+
+
+
+<div class="container mt-3">
+
+    <h3 class="ms-3 mt-1" style="">User Settings</h3>
+
+
+    @* <div class="container-fluid d-md-flex justify-content-center"> *@
+    <div class="row form-font-view">
+<form method="post" class="col-md-8" id="main-form">
+
+    <div class="container">
+
+        <div class="row mb-2">
+
+            <div class="form-floating col-md-8">
+
+                <input type="text" asp-for="rUser.FName" runat="server" class="form-control" placeholder="First Name" />
+                <label asp-for="rUser.FName" class="form-label" style="margin-left: 12px;">First Name</label>
+                <div style="display:block; height:24px;">
+                    <span asp-validation-for="rUser.FName" class="text-danger"></span>
+                </div>
+            </div>
+
+        </div>
+        <div class="row mb-2">
+
+            <div class="form-floating col-md-8">
+
+                <input type="text" asp-for="rUser.LName" class="form-control" placeholder="Last Name" />
+                <label asp-for="rUser.LName" class="form-label" style="margin-left: 12px;">Last Name</label>
+
+                <div style="display:block; height:24px;">
+                    <span asp-validation-for="rUser.LName" class="text-danger"></span>
+                </div>
+            </div>
+
+        </div>
+        <div class="row mb-2">
+
+            <div class="form-floating col-md-8">
+
+                <input type="text" asp-for="rUser.Username" class="form-control" placeholder="Username" />
+                <label asp-for="rUser.Username" class="form-label" style="margin-left: 12px;">Username</label>
+
+                <div style="display:block; height:24px;">
+                    <span asp-validation-for="rUser.Username" class="text-danger"></span>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="row mb-2">
+
+            <div class="form-floating col-md-8">
+
+                <input type="email" asp-for="rUser.Email" class="form-control" placeholder="Email" />
+                <label asp-for="rUser.Email" class="form-label" style="margin-left: 12px;">Email</label>
+
+                <div style="display:block; height:24px;">
+                    <span asp-validation-for="rUser.Email" class="text-danger"></span>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="row mb-2">
+
+            <div class="form-floating col-md-8">
+
+                <input type="text" asp-for="rUser.Password" class="form-control" placeholder="Password" />
+                <label asp-for="rUser.Password" class="form-label" style="margin-left: 12px;">Password</label>
+
+                <div style="display:block; height:24px;">
+                    <span asp-validation-for="rUser.Password" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            @* <button class="btn btn-primary btn-rv2 mx-auto" style="width: 100px;" type="submit">Submit</button> asp-route-id="@Model.rUser.UserID" *@
+            <button class="btn btn-primary btn-rv2 me-2" style="width: 100px;" type="submit" asp-page-handler="Edit" asp-route-id="r.User.UserID">Update</button>
+        </div>
+
+    </div>
+
+</form>
+    </div>
+</div>
+
+@if (Model.rUser != null && Model.rUser.Feedback != null)
+{
+    <h1>Results</h1>
+    <p>@Model.rUser.Feedback</p>
+}

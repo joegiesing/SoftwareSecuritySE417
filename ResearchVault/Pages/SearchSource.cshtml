@@ -1,0 +1,535 @@
+﻿@page
+@using Microsoft.AspNetCore.Http;
+@model ResearchVault.Pages.SearchSourceModel
+@{
+    ViewData["Title"] = "Search Page";
+}
+
+<style>
+    .form-control {
+        display: block;
+        width: 100%;
+        padding: 0.375rem 0.75rem;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: var(--bs-body-color);
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        background-color: var(--bs-body-bg);
+        background-clip: padding-box;
+        border: var(--bs-border-width) solid var(--bs-border-color);
+        border-radius: var(--bs-border-radius);
+        /* transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; */
+    }
+
+
+    .fav-container input {
+        /* position: absolute; */
+        opacity: 0;
+        cursor: pointer;
+        /*  height: 24px;
+                    width: 24px; */
+        /* height: 0;
+                width: 0; */
+    }
+
+    .fav-container {
+        display: flex;
+        align-content: center;
+        position: relative;
+        cursor: pointer;
+        /* user-select: none; */
+    }
+
+    .fav-container svg {
+        position: absolute;
+        /* top: 0;
+    left: 0; */
+        /* height: 24px;
+    width: 24px; */
+        transition: all 0.15s;
+    }
+
+    .svg-border {
+        fill: black;
+    }
+
+    .svg-fill {
+        fill: none;
+    }
+
+    .fav-container svg:hover {
+        transform: scale(1.1);
+    }
+
+    .fav-container input:checked ~ svg.svg-fill {
+        fill: red;
+    }
+
+    .FormSearchBtn {
+        height: 100%;
+        width: 100%;
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+    }
+
+    .formInputBar{
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
+
+    .popup {
+        /* position: absolute; */
+        /* top: 50%;
+        left: 50%; */
+        height: 85px;
+        width: 140px;
+        transform: translate(10%, 10%);
+        z-index: 9999;
+        background-color: white;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .sql-link:visited {
+        color: blue;
+    }
+
+</style>
+
+
+
+<div class="d-flex flex-nowrap" style="height:auto; flex:auto">
+
+
+    <div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary" style="width: 220px;">
+
+        <a href="/" class="d-flex align-items-center mb-3 mt-2 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+            <svg class="bi pe-none me-2" width="40" height="32"><use xlink:href="#bootstrap" /></svg>
+            <h3>Sort By</h3>
+            @* <span class="fs-4">Sort By</span> *@
+        </a>
+        <hr>
+
+        <form asp-page-handler="Filter" method="post">
+            <ul class="nav nav-pills flex-column mb-auto ms-3">
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link link-body-emphasis" onclick="sideDr(0)">
+                        Title
+                        @* @{
+                            HttpContext.Session.SetString("FormStatus", "Edit");
+                        } *@
+                        
+                    </a>
+
+                   @*  <div class="form-group" id="sideDrop" style="display: none">
+                        <fieldset>
+                            <legend class="form-group-label"><strong>I'm interested in...</strong></legend>
+                            <span id="BecomePartner_list" class="radio radio-list-vertical">
+                                <input id="BecomePartner_list_0" type="radio" name="BecomePartner" value="wholesale partner" />
+                                <label for="BecomePartner_list_0">Title AZ</label>
+                            </span>
+                            <span id="BecomePartner_list" class="radio radio-list-vertical">
+                                <input id="BecomePartner_list_1" type="radio" name="BecomePartner" value="partner café" />
+                                <label for="BecomePartner_list_1">Title ZA</label>
+                            </span>
+                        </fieldset>
+                    </div>
+ *@
+
+                    <ul class="ms-2 text-small " id="sideDrop" style="display: none;">
+                        <li>
+
+                            <a href="#" class="sql-link nav-link link-body-emphasis">
+                                A -> Z
+
+                                <input asp-for="@Model.SqlStrTitleAZ" type="checkbox"/> @* name="SqlStrTitle" value="titleAZ" *@
+                            </a>
+
+                        </li>
+
+                        <li>
+                            <a href="#" class="nav-link link-body-emphasis">
+                                Z -> A
+                                
+                                <input asp-for="@Model.SqlStrTitleZA" type="checkbox"/>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+
+                <li>
+                    <a href="#" class="nav-link link-body-emphasis" onclick="sideDr(1)">
+                        Author
+                    </a>
+                    <ul class="ms-2 text-small test-decoration-none list-unstyled" id="sideDrop" style="display: none;">
+                        <li><a href="#" class="nav-link link-body-emphasis">A -> Z</a></li>
+                        <li><a href="#" class="nav-link link-body-emphasis">Z -> A</a></li>
+                    </ul>
+                </li>
+
+
+                <li>
+                    <a href="#" class="nav-link link-body-emphasis" onclick="sideDr(2)">
+                        Publisher
+                    </a>
+                    <ul class="ms-2 text-small test-decoration-none list-unstyled" id="sideDrop" style="display: none;">
+                        <li><a href="#" class="nav-link link-body-emphasis">A -> Z</a></li>
+                        <li><a href="#" class="nav-link link-body-emphasis">Z -> A</a></li>
+                    </ul>
+                </li>
+
+
+                <li>
+
+                    <a href="#" class="nav-link link-body-emphasis" onclick="sideDr(3)">
+                        Date
+                    </a>
+                    <ul class="ms-2 text-small test-decoration-none list-unstyled" id="sideDrop" style="display: none;">
+                        <li><a href="#" class="nav-link link-body-emphasis">Old -> New </a></li>
+                        <li><a href="#" class="nav-link link-body-emphasis">New -> Old</a></li>
+                    </ul>
+
+                </li>
+
+
+                <li>
+                    <a href="#" class="nav-link link-body-emphasis" onclick="sideDr(4)">
+                        Type
+                    </a>
+                    <ul class="ms-2 text-small test-decoration-none list-unstyled" id="sideDrop" style="display: none;">
+                        <li><a href="#" class="nav-link link-body-emphasis">Type 1</a></li>
+                        <li><a href="#" class="nav-link link-body-emphasis">Type 2</a></li>
+                        <li><a href="#" class="nav-link link-body-emphasis">Type 3</a></li>
+                        <li><a href="#" class="nav-link link-body-emphasis">Type 4</a></li>
+                    </ul>
+                </li>
+
+
+                <li>
+                    <a href="#" class="nav-link link-body-emphasis" onclick="sideDr(5)">
+                        Category
+                    </a>
+                    <ul class="ms-2 text-small test-decoration-none list-unstyled" id="sideDrop" style="display: none;">
+                        <li><a href="#" class="nav-link link-body-emphasis">Category Search Bar...</a></li>
+                    </ul>
+                </li>
+
+
+
+                <li>
+                    <a href="#" class="nav-link link-body-emphasis" onclick="sideDr(6)">
+                        Tags
+                    </a>
+                    <ul class="ms-2 text-small test-decoration-none list-unstyled" id="sideDrop" style="display: none;">
+                        <li><a href="#" class="nav-link link-body-emphasis">Tag Search Bar...</a></li>
+                    </ul>
+                </li>
+
+
+                <li>
+                    <a href="#" class="nav-link link-body-emphasis" onclick="sideDr(7)">
+                        Favorite
+                    </a>
+                    <ul class="ms-2 text-small test-decoration-none list-unstyled" id="sideDrop" style="display: none;">
+                        <li><a href="#" class="nav-link link-body-emphasis">Favorite checkbox</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+
+            @* @{
+                Model.SqlStr += Model.SqlStrTitleAZ += Model.SqlStrAuthor += Model.SqlStrCategory += Model.SqlStrTags;
+            } *@
+
+            <button class="btn btn-primary btn-rv2 ms-4 mt-4" type="submit">Apply</button>
+        </form>
+        @* <script>
+            var SqlString = ""
+            var SqlTitle = ""
+            var SqlAuthor = ""
+
+            SqlString = SqlTitle += SqlAuthor;
+
+        </script> *@
+        
+        @Model.SqlStr
+        
+
+    </div>
+
+
+    @* --------------------- ^^^sidebar^^^ ---- vvv search form vvv--------------------------------- *@
+
+
+    <div class="container" style="padding: 20px">
+
+        
+            <div class="d-flex justify-content-center">
+                <form asp-page-handler="Search" method="post" class="sb-width">
+
+                    <div class="row row-cols-1 g-0">
+                        <div class="col-md-10">
+                            <input class="form-control bg-rv-secondary formInputBar" name="strTitle" type="text" placeholder="Search">
+                        </div>
+                        <div class="col-md-2">
+                            <button class="btn btn-primary btn-rv2 FormSearchBtn" type="submit">Search</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        
+
+        <br />
+
+        <div class="row  row-cols-1 row-cols-md-2 g-3">
+
+
+            @* <div class="col">
+                <div class="card">
+                    <div class="card-body" style="padding: 10px 15px 10px 15px;">
+                        <h5 class="card-title">
+                            <a asp-area="" asp-page="/viewsource" class="fill-div" style="text-decoration:none; color: #099BED; font-size: 16px">
+                                Benefits of social media in business-to-business customer interface in innovation
+                            </a>
+
+                            <span class="badge bg-secondary-subtle text-dark rounded-pill align-middle" style="font-size:10px">Social Media</span>
+                            <span class="badge bg-secondary-subtle text-dark rounded-pill align-middle" style="font-size:10px">Business</span>
+                            <span class="badge bg-secondary-subtle text-dark rounded-pill align-middle" style="font-size:10px">Customer</span>
+                        </h5>
+
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <p class="card-text d-flex" style="font-size: 14px">
+                                    JJ Jussila, H Kärkkäinen, M Leino
+                                    <a href="#" style="margin-left: 20px; text-decoration-line: none;">
+                                        <img src="~/images/quote.svg" style=" height: 14px; width: 14px; margin-bottom:3px;" /> 
+                                        Cite
+                                    </a>
+                                    <a asp-area="" asp-page="/ViewSource.schtml" asp-route-id="" style="margin-left: 10px; text-decoration-line: none;">
+                                        <img src="~/images/pencil-fill.svg" style="height: 10px; width: 10px; margin-bottom:3px;" />
+                                        
+                                        Edit
+
+                                    </a>
+                                    <a href="#" style="margin-left: 10px; text-decoration-line: none;"><img src="~/images/trash3-fill.svg" style="height: 10px; width: 10px; margin-bottom:3px;" /> Delete</a>
+                                </p>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <label class="fav-container me-2 mb-2" >
+
+                                    <input type="checkbox">
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" class="svg-border" viewBox="0 0 16 16">
+                                        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15" />
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="20px" width="20px" class="svg-fill" viewBox="0 0 16 16">
+                                        <path width="24px" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
+                                    </svg>
+
+                                </label>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div> *@
+
+
+            
+
+
+
+            @if (Model.lstSource == null)
+            {
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body" style="padding: 10px 15px 10px 15px;">
+
+                            <h5 class="card-title">No Model</h5>
+                            @Model.SqlStr
+
+                        </div>
+                    </div>
+                </div>
+            }
+            else
+            {
+                @foreach (var r in Model.lstSource)
+                {
+                    @* asp-route-id="@r.SourceID"
+                        id=@r.SourceID
+                    asp-page-handler="Delete" asp-route-SourceID="@r.SourceID"
+                    *@
+                    
+                    <div class="popup" id="popup-@r.SourceID" style="display: none; font-size: 12px">
+                        <form asp-page-handler="Delete" asp-route-id="@r.SourceID" method="post">
+                            <p>Delete this source </p>
+                            <div class="d-flex flex-row">
+                                <button type="button" class="btn btn-rv2 btn-primary" style="font-size:12px; height: 30px" onclick="hidePopup()">Close</button>
+                                <button type="submit" class="btn btn-danger ms-2" style="font-size:12px; height: 30px">Delete</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    
+
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body" style="padding: 10px 15px 10px 15px;">
+
+                                <h5 class="card-title">
+
+                                    @* ------------------------ title ------------------------ *@
+                                    <a asp-area="" asp-page="/viewsource" class="fill-div" style="text-decoration:none; color: #099BED; font-size: 16px">
+                                        @Html.DisplayFor(modelItem => r.Title)
+                                    </a>
+
+                                    @* ------------------------ Tags ------------------------ *@
+                                    <span class="badge bg-secondary-subtle text-dark rounded-pill align-middle" style="font-size:10px">@r.Tags</span>
+                            
+                                </h5>
+
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <p class="card-text d-flex" style="font-size: 14px">
+
+                                            @* ------------------------ Author ------------------------ *@
+                                            @r.Author @r.SourceID
+
+
+                                            @* ------------------------ Citation button ------------------------ *@
+                                            @* <a href="#" style="margin-left: 20px; text-decoration-line: none;">
+                                                <img src="~/images/quote.svg" style=" height: 14px; width: 14px; margin-bottom:3px;" />
+                                                Cite
+                                            </a> *@
+
+                                            @* ------------------------ Edit Button ------------------------ asp-route-id="@r.SourceID" *@
+                                            <a asp-area="" asp-page="/EditSource" asp-route-id="@r.SourceID" style="margin-left: 10px; text-decoration-line: none;">
+                                                <img src="~/images/pencil-fill.svg" style="height: 10px; width: 10px; margin-bottom:3px;" />
+
+                                                Edit
+                                                
+                                            </a>
+
+
+
+                                            @* <form asp-page="/ViewSource" asp-route-id="@r.SourceID" asp-page-handler="Edit" method="post" style="margin-left: 10px; text-decoration-line: none;">
+                                                @{
+                                                    ///ViewSource" asp-route-id="@r.SourceID"
+                                                    //Request.HttpContext.Session.SetString("FormStatus", "Edit");      
+                                                    // Request.HttpContext.Session.SetInt32("SourceID", r.SourceID);
+                                                    //Model.formStat = "Edit";
+                                                    //Model.formID = r.SourceID;
+                                                }
+
+                                                <input for="@Model.FormStatus" type="hidden" name="FormStatus" value="Edit" />
+                                                <input type="hidden" name="SourceID" value="@r.SourceID" />
+
+                                                <button type="submit" style="margin-left: 10px; text-decoration-line: none; border: none; background: none;">
+                                                    <img src="~/images/pencil-fill.svg" style="height: 10px; width: 10px; margin-bottom:3px;" />
+                                                    
+                                                    Edit
+                                                </button>
+                                            </form> *@
+                                           
+
+                                            
+                                            @* ------------------------ Deelete Button ------------------------ asp-page="/EditSource" asp-route-id="@r.SourceID" *@
+                                            <a href="#" style="margin-left: 10px; text-decoration-line: none;" onclick="showPopup(@r.SourceID)" class="pop-@r.SourceID">
+                                                <img src="~/images/trash3-fill.svg" style="height: 10px; width: 10px; margin-bottom:3px;" />
+                                                Delete
+                                                
+                                            </a>
+                                        </p>
+                                    </div>
+                                    <div class="d-flex align-items-center">
+                                        
+                                        <label class="fav-container me-2 mb-2">
+
+                                            <input type="checkbox" @(r.Favorite ? "checked" : "")>
+
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" class="svg-border" viewBox="0 0 16 16">
+                                                <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15" />
+                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" height="20px" width="20px" class="svg-fill" viewBox="0 0 16 16">
+                                                <path width="24px" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" />
+                                            </svg>
+
+                                        </label>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+
+
+        </div>
+    </div>
+
+
+    <script>
+        
+        function showPopup(id) {
+            var divElement = document.querySelector('.pop-' + id);
+            var rect = divElement.getBoundingClientRect();
+
+            var coordinates = {
+                top: rect.top + window.scrollY,
+                left: rect.left + window.scrollX,
+                bottom: rect.bottom + window.scrollY,
+                right: rect.right + window.scrollX
+            };
+
+            var popup = document.getElementById("popup-" + id);
+
+            popup.style.position = "absolute";
+            popup.style.top = coordinates.top + "px";
+            popup.style.left = coordinates.left + "px";
+            popup.style.bottom = coordinates.bottom + "px";
+            popup.style.right = coordinates.right + "px";
+            popup.style.display = "block";
+        }
+
+
+
+        function hidePopup() {
+            
+            var popup = document.getElementById("popup");
+            
+            popup.style.display = "none";
+        }
+
+
+        function sideDr(num) {
+            var x = document.querySelectorAll("#sideDrop")[num]
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+    </script>
+</div>
+
+@*if (Model.lstSource != null && Model.lstSource[0].Feedback != null)
+{
+    
+        <h1>Results</h1>
+        <p>@Model.lstSource[0].Feedback</p>
+    
+}*@
+
+
+

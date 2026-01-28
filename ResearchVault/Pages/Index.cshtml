@@ -1,0 +1,136 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<style>
+    .preview-border {
+        border: var(--bs-border-width) solid var(--bs-border-color);
+        border-radius: var(--bs-border-radius);
+    }
+</style>
+
+@* <div class="container">
+
+
+    <div class="container">
+        <div class="row  row-cols-6 row-cols-md-4 g-4">
+
+            <div class="col">
+                <div class="card">
+                    <div class="card-body" >
+                        <h5 class="card-title">
+                            <a asp-area="" asp-page="/viewsource" class="fill-div" style="text-decoration:none">
+                                Benefits of social media in business-to-business customer interface in innovation
+                            </a>
+
+                            <span class="badge bg-secondary-subtle text-secondary-emphasis rounded-pill align-middle" style="font-size:11px">Social Media</span>
+                            <span class="badge bg-secondary-subtle text-secondary-emphasis rounded-pill align-middle" style="font-size:11px">Business</span>
+                            <span class="badge bg-secondary-subtle text-secondary-emphasis rounded-pill align-middle" style="font-size:11px">Customer</span>
+                        </h5>
+
+                        <p class="card-text">
+                            JJ Jussila, H Kärkkäinen, M Leino
+                            <a href="#" style="margin-left: 15px">Cite</a>
+                            <a href="#" style="margin-left: 5px">Edit</a>
+                            <a href="#" style="margin-left: 5px">Delete</a>
+                        </p>
+
+                    </div>
+                </div>
+            </div> 
+
+           <div class="col card">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a asp-area="" asp-page="/viewsource" class="fill-div" style="text-decoration:none; font-size: 16px">
+                            Benefits of social media in business-to-business customer interface in innovation
+                        </a>
+                    </h5>
+                </div>
+            </div>
+
+
+
+
+        </div>
+    </div>
+
+</div> *@
+
+
+
+<div class="container">
+
+    <div class="container mt-3">
+        <h3 class="mb-4">Recents</h3>
+        <div class="row row-cols-5 g-3 p-3 pb-4 shadow align-content-center align-items-center preview-border">
+
+            @if (Model == null)
+            {
+                <div class="col card">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            No Model Recents
+                        </h5>
+                    </div>
+                </div>
+            }
+            else
+            {
+                @foreach (var r in Model.lstSourceRecent.Take(10))
+                {
+                    <div class="col card pb-1" style="border: none">
+                        <div class="card-body preview-border" style="padding: 5px 10px 5px 10px;">
+                            @* /* border: solid #ced4da 1px"  style="border: solid #ced4da 1px " */ *@
+                            <h5 class="card-title">
+                                <a asp-route-id="@r.SourceID" asp-page="/EditSource" class="fill-div" style="text-decoration:none; color: #099BED; font-size: 14px">
+                                    @r.Title
+                                </a>
+                            </h5>
+                        </div>
+                    </div>
+                }
+            }
+            
+        </div>
+    </div>
+
+
+
+    <div class="container mt-3">
+        <h3 class="mb-4">Favorites</h3>
+        <div class="row row-cols-5 g-3 p-3 pb-4 shadow align-content-center align-items-center preview-border">
+
+            @if (Model == null)
+            {
+                <div class="col card">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            No Model Favorites
+                        </h5>
+                    </div>
+                </div>
+            }
+            else
+            {
+                @foreach (var r in Model.lstSourceFav.Take(10))
+                {
+                    <div class="col card pb-1" style="border: none">
+                        <div class="card-body preview-border" style="padding: 5px 10px 5px 10px;">
+                            <h5 class="card-title">
+                                <a asp-route-id="@r.SourceID" asp-page="/EditSource" class="fill-div" style="text-decoration:none; color: #099BED; font-size: 14px">
+                                    @r.Title
+                                </a>
+                            </h5>
+                        </div>
+                    </div>
+                }
+            }
+            
+        </div>
+    </div>
+
+
+</div>

@@ -1,0 +1,97 @@
+﻿@page
+@model ResearchVault.Pages.Admin.IndexModel
+@{
+    ViewData["Title"] = "Login Page";
+}
+
+<style>
+
+    #LayoutHeader {
+        display: none;
+    }
+
+    .form-signin {
+        max-width: 330px;
+        max-height: 500px;
+        padding: 1rem;
+    }
+
+    .is-valid{
+        border: 1.8px solid rgba(25, 135, 84);
+        outline: 0;
+        box-shadow: 0 0 5px 0.20rem rgba(25, 135, 84, 0.25);
+    }
+
+    .form-control.is-valid:focus {
+        border: 1.8px solid rgba(25, 135, 84);
+        outline: 0;
+        box-shadow: 0 0 5px 0.20rem rgba(25, 135, 84, 0.25);
+    }
+
+    .form-signin .form-floating:focus-within {
+      z-index: 2;
+    }
+
+    /* .form-signin input[type="email"] {
+      margin-bottom: 10px;
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    .form-signin input[type="password"] {
+      margin-bottom: 10px;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    } */
+
+</style>
+
+
+<div class="form-signin m-auto w-100 shadow align-content-center" style="border-top: 10px #780707 solid;">
+
+    <form method="post">
+
+        <div class="w-100 m-auto d-flex align-items-center">
+            <img src="~/images/RV-logo-cap.png" class="rv-color-second m-auto" style="height: 60px; width: 60px;" />
+        </div>
+        
+        <h1 class="h3 mb-4 mt-2 fw-normal" style="text-align:center;"><strong>Sign In</strong></h1>
+
+
+        <div>
+            <div class="form-floating mb-1">
+                <input asp-for="rUserLogin.Email" type="email" class="form-control" placeholder="Email">
+                <label for="floatingInput">Email address</label>
+            </div>
+            <div style="display:block; height:24px;">
+                <span asp-validation-for="rUserLogin.Email" class="text-danger errorMsg"></span>
+            </div>
+        </div>
+        <div>
+            <div class="form-floating mb-1">
+                <input asp-for="rUserLogin.Password" type="password" class="form-control" placeholder="Password">
+                <label for="floatingPassword">Password</label>
+            </div>
+            <div style="display:block; height:24px;">
+                <span asp-validation-for="rUserLogin.Password" class="text-danger errorMsg"></span>
+            </div>
+        </div>
+
+
+        <div class="my-3" style="text-align:center;">
+            <a class="link-primary active rv-color-second" aria-current="page" asp-area="" asp-page="/Admin/CreateAcc">Create Account</a>
+        </div>
+        
+
+        <button class="btn btn-primary btn-rv2 w-100 py-2" style="width:160px; align-content:center" type="submit">Sign In</button>
+    </form>
+</div>
+
+@* @{
+    if (Model.rUserLogin != null && Model.rUserLogin.Feedback != null)
+    {
+        <h1>Results</h1>
+        <p>@Model.rUserLogin.Feedback</p>
+    }
+} *@
+
