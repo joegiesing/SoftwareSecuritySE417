@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - ResearchVault</title>
     @* <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" /> *@
-    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 
@@ -15,14 +15,14 @@
 
     @* ------------- Header Start--------------- *@
     <header id="LayoutHeader">
-    @*  <nav class="navbar navbar-expand-md navbar-dark bg-dark " aria-label="Fourth navbar example">*@        
+        @*  <nav class="navbar navbar-expand-md navbar-dark bg-dark " aria-label="Fourth navbar example">*@        
         <nav class="navbar navbar-expand-md bg-rv-main navbar-dark" aria-label="Fourth navbar example">
 
             <div class="container-fluid">
 
                 @* Main logo/home button *@
                 <a class="navbar-brand rv-color-second" style="font-size: 20px;" asp-area="" asp-page="/Index">
-                    <img src="~/images/RV-logo-cap.png" style="height: 30px; width: 30px;"/>
+                    <img src="~/images/RV-logo-cap.png" style="height: 30px; width: 30px;" />
                     <b class="ms-2" style="vertical-align: middle; font-weight: 700;">RESEARCH VAULT</b>
                 </a>
 
@@ -61,8 +61,8 @@
 
                     @* right side of nav bar *@
                     <div class="d-flex align-items-center">
-                    @* <div class="d-lg-flex col-lg-3 justify-content-lg-end">*@
-                    
+                        @* <div class="d-lg-flex col-lg-3 justify-content-lg-end">*@
+
 
                         <div class="nav-item dropdown">
                             <a class="nav-link link-light active dropdown-toggle px3 me-3" href="#" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Profile</a>
@@ -75,13 +75,13 @@
 
                         </div>
 
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" fill="white" class="bi bi-person-circle me-3" viewBox="0 0 16 16" >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30px" height="30px" fill="white" class="bi bi-person-circle me-3" viewBox="0 0 16 16">
                             <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
                             <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
                         </svg>
 
                         @* <img src="~/images/person-circle.svg" style=" height: 30px; width: 30px; margin-bottom:3px;" /> *@
-                        
+
                         @* <form class="d-flex" role="search">
                             <input class="form-control" type="search" placeholder="Search" aria-label="Search">
                             <button class="btn btn-outline-dark" type="submit">Search</button>
@@ -94,19 +94,19 @@
         </nav>
     </header>
     @* ------------- Header End --------------- *@
-    
 
-    
+
+
     <main role="main" class="container-fluid" style="padding: unset; flex: auto;">
         @RenderBody()
     </main>
-    
+
 
 
     @* ------------- Footer Start --------------- *@
     <footer class="border-top text-muted">
         <div class="container">
-            &copy; 2024 - ResearchVault - <a asp-area="" asp-page="/Privacy">Privacy</a> 
+            &copy; 2024 - ResearchVault - <a asp-area="" asp-page="/Privacy">Privacy</a>
             - <a class="link-primary active" aria-current="page" asp-area="" asp-page="/index">To Main Page</a>
             - <a class="link-primary active" aria-current="page" asp-area="" asp-page="/admin/index">To Login Page</a>
 
@@ -116,22 +116,23 @@
 
 
     @{
-            @using Microsoft.AspNetCore.Http
+        @using Microsoft.AspNetCore.Http
 
-            @namespace ResearchVault.Pages.Shared
+    @namespace ResearchVault.Pages.Shared
 
         // @model dynamic
 
         //Layout = null;
-    }
-    
+        }
+
 
     <script>
         function hideAdminPage() {
             var permissions = @Context.Request.HttpContext.Session.GetInt32("Permissions");
             var adminPageElement = document.getElementById("AdminPage");
 
-            if (permissions < 2) {
+            //show admin link for primary and secondary. hide for basic
+            if (permissions === null || permissions < 1) {
                 adminPageElement.style.display = "none";
             }
         }
@@ -139,9 +140,9 @@
         hideAdminPage();
 
 
-        
+
     </script>
-   
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

@@ -39,7 +39,8 @@ namespace ResearchVault.Pages.Admin
             }
             else
             {
-                if (HttpContext.Session.GetInt32("Permissions") is null || HttpContext.Session.GetInt32("Permissions") < 2)
+                //secondary and primary admins can view
+                if (HttpContext.Session.GetInt32("Permissions") is null || HttpContext.Session.GetInt32("Permissions") < 1)
                 {
                     return RedirectToPage("/Index");
                 }
@@ -48,61 +49,41 @@ namespace ResearchVault.Pages.Admin
                     lstUser = factory.ListUsers(null).ToList();
                     return Page();
                 }
-                //else
-                //{
-                //    return RedirectToPage("/Index");
-                //}
             }
-            
-
         }
-
-        //[HttpGet("/Admin/ControlPanel/{id}")]
-        //public IActionResult OnGetEdit(int id)
-        //{
-        //    //lstUser = factory.ListUsers(null).ToList();
-        //    rUser = factory.GetOneUser(id);
-        //    if (rUser == null)
-        //    {
-        //        return RedirectToPage("/Error");
-        //    }
-        //    else
-        //    {
-        //        return Page();
-        //    }
-
-        //    //if (id == null)
-        //    //{
-        //    //    return Page();
-        //    //}
-        //    //else
-        //    //{
-        //    //    //lstUser = factory.ListUsers(null).ToList();
-        //    //    rUser = factory.GetOneUser(id);
-        //    //    return RedirectToPage("/Error");
-        //    //}
-        //}
 
         public IActionResult OnPostEdit(Int32? id)
         {
+            //Only primary admins can edit
+            if (HttpContext.Session.GetInt32("Permissions") < 2)
+            {
+                TempData["ErrorMessage"] = "You do not have permission to edit users.";
+                lstUser = factory.ListUsers(null).ToList();
+                return Page();
+            }
+
             if (id == null)
             {
-                //return Page();
                 return RedirectToPage("/Error");
             }
             else
             {
                 rUser = factory.GetOneUser(id);
                 lstUser = factory.ListUsers(null).ToList();
-                //int id = rUser.UserID; // Get the ID from the rUser object
-                //return RedirectToPage("/Admin/ControlPanel", new { id });
-                //return RedirectToPage("/Admin/ControlPanel");
                 return Page();
             }
         }
 
         public IActionResult OnPostDelete(Int32? id)
         {
+            //Only primary admin can delete users
+            if (HttpContext.Session.GetInt32("Permissions") < 2)
+            {
+                TempData["ErrorMessage"] = "You do not have permission to delete users.";
+                lstUser = factory.ListUsers(null).ToList();
+                return Page();
+            }
+
             if (id == null)
             {
                 return RedirectToPage("/Error");
@@ -111,13 +92,21 @@ namespace ResearchVault.Pages.Admin
             {
                 factory.DeleteUser(id);
                 lstUser = factory.ListUsers(null).ToList();
-                
+
                 return Page();
             }
         }
 
         public IActionResult OnPostUpdate()
         {
+            //Only primary admin can update users
+            if (HttpContext.Session.GetInt32("Permissions") < 2)
+            {
+                TempData["ErrorMessage"] = "You do not have permission to update users.";
+                lstUser = factory.ListUsers(null).ToList();
+                return Page();
+            }
+
             if (rUser == null)
             {
                 return RedirectToPage("/Error");
