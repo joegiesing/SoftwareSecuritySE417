@@ -1,5 +1,7 @@
 is_global = true
 build_property.TargetFramework = net8.0
+build_property.TargetFrameworkIdentifier = .NETCoreApp
+build_property.TargetFrameworkVersion = v8.0
 build_property.TargetPlatformMinVersion = 
 build_property.UsingMicrosoftNETSdkWeb = true
 build_property.ProjectTypeGuids = 
@@ -9,69 +11,69 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ResearchVault
 build_property.RootNamespace = ResearchVault
-build_property.ProjectDir = C:\Users\josep\OneDrive\Desktop\ResearchVaultRepo\ResearchVault\
+build_property.ProjectDir = C:\Users\Dylan\Desktop\SoftwareSecuritySE417\ResearchVault\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\josep\OneDrive\Desktop\ResearchVaultRepo\ResearchVault
+build_property.MSBuildProjectDirectory = C:\Users\Dylan\Desktop\SoftwareSecuritySE417\ResearchVault
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 8.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/josep/OneDrive/Desktop/ResearchVaultRepo/ResearchVault/Pages/Admin/ControlPanel.cshtml]
+[C:/Users/Dylan/Desktop/SoftwareSecuritySE417/ResearchVault/Pages/Admin/ControlPanel.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQ29udHJvbFBhbmVsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josep/OneDrive/Desktop/ResearchVaultRepo/ResearchVault/Pages/Admin/CreateAcc.cshtml]
+[C:/Users/Dylan/Desktop/SoftwareSecuritySE417/ResearchVault/Pages/Admin/CreateAcc.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQ3JlYXRlQWNjLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josep/OneDrive/Desktop/ResearchVaultRepo/ResearchVault/Pages/Admin/Index.cshtml]
+[C:/Users/Dylan/Desktop/SoftwareSecuritySE417/ResearchVault/Pages/Admin/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josep/OneDrive/Desktop/ResearchVaultRepo/ResearchVault/Pages/Admin/UserSettings.cshtml]
+[C:/Users/Dylan/Desktop/SoftwareSecuritySE417/ResearchVault/Pages/Admin/UserSettings.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cVXNlclNldHRpbmdzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josep/OneDrive/Desktop/ResearchVaultRepo/ResearchVault/Pages/EditSource.cshtml]
+[C:/Users/Dylan/Desktop/SoftwareSecuritySE417/ResearchVault/Pages/EditSource.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWRpdFNvdXJjZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josep/OneDrive/Desktop/ResearchVaultRepo/ResearchVault/Pages/Error.cshtml]
+[C:/Users/Dylan/Desktop/SoftwareSecuritySE417/ResearchVault/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josep/OneDrive/Desktop/ResearchVaultRepo/ResearchVault/Pages/Index.cshtml]
+[C:/Users/Dylan/Desktop/SoftwareSecuritySE417/ResearchVault/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josep/OneDrive/Desktop/ResearchVaultRepo/ResearchVault/Pages/Privacy.cshtml]
+[C:/Users/Dylan/Desktop/SoftwareSecuritySE417/ResearchVault/Pages/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josep/OneDrive/Desktop/ResearchVaultRepo/ResearchVault/Pages/SearchSource.cshtml]
+[C:/Users/Dylan/Desktop/SoftwareSecuritySE417/ResearchVault/Pages/SearchSource.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2VhcmNoU291cmNlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josep/OneDrive/Desktop/ResearchVaultRepo/ResearchVault/Pages/Shared/_Layout.cshtml]
+[C:/Users/Dylan/Desktop/SoftwareSecuritySE417/ResearchVault/Pages/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josep/OneDrive/Desktop/ResearchVaultRepo/ResearchVault/Pages/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/Dylan/Desktop/SoftwareSecuritySE417/ResearchVault/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josep/OneDrive/Desktop/ResearchVaultRepo/ResearchVault/Pages/ViewSource.cshtml]
+[C:/Users/Dylan/Desktop/SoftwareSecuritySE417/ResearchVault/Pages/ViewSource.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVmlld1NvdXJjZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josep/OneDrive/Desktop/ResearchVaultRepo/ResearchVault/Pages/_ViewImports.cshtml]
+[C:/Users/Dylan/Desktop/SoftwareSecuritySE417/ResearchVault/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josep/OneDrive/Desktop/ResearchVaultRepo/ResearchVault/Pages/_ViewStart.cshtml]
+[C:/Users/Dylan/Desktop/SoftwareSecuritySE417/ResearchVault/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

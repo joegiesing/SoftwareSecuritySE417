@@ -240,57 +240,58 @@ namespace ResearchVault.Models
 
 
         //list Sources
+
         public IEnumerable<SourceModel> ListSources(Int32? uID, string? sqlStr)
         {
             List<SourceModel> sourceList = new List<SourceModel>();
             string strSQL = "";
 
-
             if (sqlStr == null)
             {
-                strSQL = "SELECT * FROM Source WHERE Source.UserID =" + uID + " ORDER BY DateAdded DESC;";
+                //Safe User Id
+                strSQL = "SELECT * FROM Source WHERE Source.UserID = @uID ORDER BY DateAdded DESC;";
             }
             else
             {
-                //strSQL = sqlStr.Trim();
                 strSQL = sqlStr;
             }
 
             try
             {
                 using SqlConnection con = new(ConnectionString);
+                using SqlCommand cmd = new SqlCommand(strSQL, con);
 
-                SqlCommand cmd = new SqlCommand(strSQL, con);
                 cmd.CommandType = CommandType.Text;
-                
+
+                //check to set user id
+                if (sqlStr == null)
+                    cmd.Parameters.AddWithValue("@uID", uID);
 
                 con.Open();
-                SqlDataReader dr = cmd.ExecuteReader();
+                using SqlDataReader dr = cmd.ExecuteReader();
 
                 while (dr.Read())
                 {
                     SourceModel rSource = new()
                     {
                         SourceID = Convert.ToInt32(dr["SourceID"]),
-                        Title = dr["Title"].ToString(),
-                        Author = dr["Author"].ToString(),
-                        Publisher = dr["Publisher"].ToString(),
-                        Link = dr["Link"].ToString(),
-                        //DateAdded = DateTime.Parse(dr["DateAdded"].ToString()),
-                        DateCreated = DateTime.Parse(dr["DateCreated"].ToString()),
-                        Type = dr["Type"].ToString(),
-                        Category = dr["Category"].ToString(),
-                        Tags = dr["Tags"].ToString(),
-                        Favorite = Boolean.Parse(dr["Favorite"].ToString()),
-                        Notes = dr["Notes"].ToString(),
+                        Title = dr["Title"]?.ToString(),
+                        Author = dr["Author"]?.ToString(),
+                        Publisher = dr["Publisher"]?.ToString(),
+                        Link = dr["Link"]?.ToString(),
+                        DateCreated = dr.GetDateTime(dr.GetOrdinal("DateCreated")),
+                        DateAdded = dr.GetDateTime(dr.GetOrdinal("DateAdded")),
+                        Type = dr["Type"]?.ToString(),
+                        Category = dr["Category"] == DBNull.Value ? null : dr["Category"].ToString(),
+                        Tags = dr["Tags"] == DBNull.Value ? null : dr["Tags"].ToString(),
+                        Favorite = Convert.ToBoolean(dr["Favorite"]),
+                        Notes = dr["Notes"] == DBNull.Value ? null : dr["Notes"].ToString(),
                         UserID = Convert.ToInt32(dr["UserID"]),
                         Feedback = ""
-
                     };
 
                     sourceList.Add(rSource);
                 }
-                con.Close();
             }
             catch (Exception err)
             {
@@ -299,6 +300,7 @@ namespace ResearchVault.Models
 
             return sourceList;
         }
+
 
 
 
