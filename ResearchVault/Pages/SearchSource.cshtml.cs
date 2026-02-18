@@ -83,11 +83,11 @@ namespace ResearchVault.Pages
         //search bar
         public IActionResult OnPostSearch(string? strTitle)
         {
-            strTitle.Trim();
             Int32? uID = HttpContext.Session.GetInt32("UserID");
 
             if (strTitle != null)
             {
+                strTitle.Trim();
                 string str = "SELECT * FROM Source WHERE Title LIKE '%" + strTitle + "%'";
                 lstSource = factory.ListSources(uID, str).ToList();
 

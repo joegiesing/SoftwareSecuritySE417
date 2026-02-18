@@ -773,11 +773,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Dylan\\Desktop\\SoftwareSecuritySE417\\ResearchVault\\ResearchVault.csproj",
+      "projectUniqueName": "C:\\Users\\Dylan\\source\\repos\\SoftwareSecuritySE417\\ResearchVault\\ResearchVault.csproj",
       "projectName": "ResearchVault",
-      "projectPath": "C:\\Users\\Dylan\\Desktop\\SoftwareSecuritySE417\\ResearchVault\\ResearchVault.csproj",
+      "projectPath": "C:\\Users\\Dylan\\source\\repos\\SoftwareSecuritySE417\\ResearchVault\\ResearchVault.csproj",
       "packagesPath": "C:\\Users\\Dylan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Dylan\\Desktop\\SoftwareSecuritySE417\\ResearchVault\\obj\\",
+      "outputPath": "C:\\Users\\Dylan\\source\\repos\\SoftwareSecuritySE417\\ResearchVault\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
