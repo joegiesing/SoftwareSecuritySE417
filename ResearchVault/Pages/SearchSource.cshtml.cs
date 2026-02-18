@@ -81,6 +81,7 @@ namespace ResearchVault.Pages
 
         #nullable enable
         //search bar
+
         public IActionResult OnPostSearch(string? strTitle)
         {
             Int32? uID = HttpContext.Session.GetInt32("UserID");

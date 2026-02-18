@@ -19,6 +19,7 @@ namespace ResearchVault.Models
     public class SourceDataAccessLayer
     {
 
+        #nullable enable
         readonly string? ConnectionString;
 
         private readonly IConfiguration _configuration;
@@ -337,12 +338,17 @@ namespace ResearchVault.Models
                         //    rSource.DateCreated = tempDate;
 
                         //}
-                        rSource.DateCreated = DateTime.Parse(dr["DateCreated"].ToString());
-                        rSource.DateAdded = DateTime.Parse(dr["DateAdded"].ToString());
+
+                        //Changed to prevent null warnings and check for null
+                        rSource.DateCreated = dr["DateCreated"] != DBNull.Value && DateTime.TryParse(dr["DateCreated"].ToString(), out var dtCreated) ? dtCreated: DateTime.MinValue;
+                        rSource.DateAdded = dr["DateAdded"] != DBNull.Value && DateTime.TryParse(dr["DateAdded"].ToString(), out var dtAdded) ? dtAdded : DateTime.MinValue;
+
                         //rSource.DateCreated = dr.IsDBNull("DateCreated") ? (DateTime?)null : dr.GetDateTime("DateCreated");
                         rSource.Type = dr["Type"].ToString();
                         rSource.Category = dr["Category"].ToString();
-                        rSource.Favorite = Boolean.Parse(dr["Favorite"].ToString());
+
+                        rSource.Favorite = dr["Favorite"] != DBNull.Value && Boolean.TryParse(dr["Favorite"].ToString(), out var favorite) ? favorite : false;
+
                         rSource.Notes = dr["Notes"].ToString();
                         rSource.UserID = Convert.ToInt32(dr["UserID"]);
 
