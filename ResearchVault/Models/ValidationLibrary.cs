@@ -1,10 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations;
 
 
 namespace ResearchVault.Models
@@ -171,6 +173,15 @@ namespace ResearchVault.Models
             }
 
             return bln;
+        }
+
+        public static string hashPassword(string password)
+        {
+            byte[] salt = new byte[16];
+            var pbkdf2 = new Rfc2898DeriveBytes(password, salt, 100000);
+            byte[] hash = pbkdf2.GetBytes(20);
+            string str = Encoding.UTF8.GetString(hash);
+            return str;
         }
 
 

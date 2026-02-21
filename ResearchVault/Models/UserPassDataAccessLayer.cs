@@ -34,7 +34,7 @@ namespace ResearchVault.Models
                     comm.CommandType = CommandType.Text;
 
                     comm.Parameters.AddWithValue("@Email", rUser.Email);
-                    comm.Parameters.AddWithValue("@Password", rUser.Password);
+                    comm.Parameters.AddWithValue("@Password", ValidationLibrary.hashPassword(rUser.Password));
 
                     conn.Open();
                     SqlDataReader dr = comm.ExecuteReader();

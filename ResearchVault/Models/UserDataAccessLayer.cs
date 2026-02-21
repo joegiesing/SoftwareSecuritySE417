@@ -36,6 +36,8 @@ namespace ResearchVault.Models
 
                 rUser.Feedback = "";
 
+                
+
                 try     //test for connection to database and return error if cannot connect
                 {
                     using (SqlCommand command = new SqlCommand(strSQL, conn))
@@ -46,7 +48,7 @@ namespace ResearchVault.Models
                         command.Parameters.AddWithValue("@LName", rUser.LName);
                         command.Parameters.AddWithValue("@Email", rUser.Email);
                         command.Parameters.AddWithValue("@Username", rUser.Username);
-                        command.Parameters.AddWithValue("@Password", rUser.Password);
+                        command.Parameters.AddWithValue("@Password", ValidationLibrary.hashPassword(rUser.Password));
 
                         command.Parameters.AddWithValue("@Permissions", rUser.Permissions);
 
@@ -89,7 +91,7 @@ namespace ResearchVault.Models
                     command.Parameters.AddWithValue("@LName", rUser.LName);
                     command.Parameters.AddWithValue("@Email", rUser.Email);
                     command.Parameters.AddWithValue("@Username", rUser.Username);
-                    command.Parameters.AddWithValue("@Password", rUser.Password);
+                    command.Parameters.AddWithValue("@Password", ValidationLibrary.hashPassword(rUser.Password));
                     command.Parameters.AddWithValue("@Permissions", rUser.Permissions);
                     command.Parameters.AddWithValue("@UserID", rUser.UserID);
 
@@ -193,6 +195,34 @@ namespace ResearchVault.Models
             return userList;
         }
 
+        public bool ifEmailExists(string email)
+        {
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(ConnectionString))
+                {
+                    string strSQL = "SELECT * FROM Users Where Email = @Email;";
+                    bool validEmail = true;
+                    SqlCommand command = new SqlCommand(strSQL, conn);
+                    command.CommandType = CommandType.Text;
+
+                    command.Parameters.AddWithValue("@Email", email);
+
+                    conn.Open();
+                    SqlDataReader dr = command.ExecuteReader();
+
+                    validEmail = dr.HasRows;
+
+                    conn.Close();
+                    return validEmail;
+                }
+            }
+            catch (Exception err)
+            {
+                return false;
+            }
+        }
 
 
         //edit user

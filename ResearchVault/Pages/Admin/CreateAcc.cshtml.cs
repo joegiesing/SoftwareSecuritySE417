@@ -18,11 +18,14 @@ namespace ResearchVault.Pages.Admin
         [BindProperty]
         public UserModel rUser { get; set; }
 
-        private readonly IConfiguration _configuration;
+        //private readonly IConfiguration _configuration;
+
+        private readonly UserDataAccessLayer accessLayerUser;
 
         public CreateAccModel(IConfiguration configuration)
         {
-            _configuration = configuration;
+            //_configuration = configuration;
+            accessLayerUser = new UserDataAccessLayer(configuration);
         }
 
 
@@ -42,15 +45,16 @@ namespace ResearchVault.Pages.Admin
                 temp = Page();
 
             }
+            else if (accessLayerUser.ifEmailExists(rUser.Email)){
+                temp = Page();
+            }
             else
             {
                 if (rUser is null == false)
                 {
-                    UserDataAccessLayer factory = new UserDataAccessLayer(_configuration);
-
                     rUser.Permissions = 0;
 
-                    factory.AddUser(rUser);
+                    accessLayerUser.AddUser(rUser);
 
                     temp = RedirectToPage("/Admin/Index");
                 }
