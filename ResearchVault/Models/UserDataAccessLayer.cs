@@ -12,6 +12,7 @@ namespace ResearchVault.Models
 {
     public class UserDataAccessLayer
     {
+        
 
         readonly string ConnectionString;
 
@@ -23,7 +24,7 @@ namespace ResearchVault.Models
             ConnectionString = _configuration.GetConnectionString("DefaultConnection");
         }
 
-
+        #nullable enable
 
         //add user to the database
         public void AddUser(UserModel rUser)
