@@ -13,7 +13,6 @@ namespace ResearchVault.Models
     public class UserDataAccessLayer
     {
         
-
         readonly string ConnectionString;
 
         private readonly IConfiguration _configuration;
