@@ -329,8 +329,8 @@ paket-files/
 .fake/
 
 # Exclude obj and bin Folder
-bin/
-obj/
+ResearchVault/bin/
+ResearchVault/obj/
 
 # CodeRush personal settings
 .cr/personal
