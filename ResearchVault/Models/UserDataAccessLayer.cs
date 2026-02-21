@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Data;
 using Microsoft.Extensions.Configuration;
 using ResearchVault.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace ResearchVault.Models
 {
@@ -78,20 +79,19 @@ namespace ResearchVault.Models
                     // create SQL command variable
                     SqlCommand command = new SqlCommand();
 
-
                     // create SQL update string
-                    string strSQL = "UPDATE Users SET FName = @FName, LName = @LName, Email = @Email, Username = @Username, Password = @Password, Permissions = @Permissions WHERE UserID = @UserID;";
+                    string strSQL = "UPDATE Users SET FName = @FName, LName = @LName, Email = @Email, Username = @Username, Permissions = @Permissions WHERE UserID = @UserID;";
 
                     command.CommandText = strSQL;
                     command.Connection = conn;
                     command.CommandType = CommandType.Text;
+
 
                     // parameters to fill placeholders with values and send to the database
                     command.Parameters.AddWithValue("@FName", rUser.FName);
                     command.Parameters.AddWithValue("@LName", rUser.LName);
                     command.Parameters.AddWithValue("@Email", rUser.Email);
                     command.Parameters.AddWithValue("@Username", rUser.Username);
-                    command.Parameters.AddWithValue("@Password", ValidationLibrary.hashPassword(rUser.Password));
                     command.Parameters.AddWithValue("@Permissions", rUser.Permissions);
                     command.Parameters.AddWithValue("@UserID", rUser.UserID);
 
@@ -223,7 +223,6 @@ namespace ResearchVault.Models
                 return false;
             }
         }
-
 
         //edit user
         public UserModel GetOneUser(int? id)
