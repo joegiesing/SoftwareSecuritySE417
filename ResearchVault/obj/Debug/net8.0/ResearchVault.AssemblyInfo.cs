@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ResearchVault")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6c628556a228cb945a6aaec629894c05685ee000")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5038b42c60c0cf503fcf8a904f281bc711baf47e")]
 [assembly: System.Reflection.AssemblyProductAttribute("ResearchVault")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ResearchVault")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
