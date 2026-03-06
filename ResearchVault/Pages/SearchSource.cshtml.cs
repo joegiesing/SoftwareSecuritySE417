@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Session;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
 using ResearchVault.Models;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,10 +14,14 @@ namespace ResearchVault.Pages
 {
     public class SearchSourceModel : PageModel
     {
+
+        //public SourceModel rSource { get; set; }
         public List<SourceModel> lstSource { get; set; }
 
         SourceDataAccessLayer factory;
 
+
+        //very convoluted
         public String SqlStr { get; set; }
 
         [BindProperty]
@@ -33,26 +36,25 @@ namespace ResearchVault.Pages
         [BindProperty]
         public Boolean SqlStrCategoryZA { get; set; }
 
-        //[BindProperty]
-        //public String SqlStrAuthor { get; set; }
+        [BindProperty]
+        public String SqlStrAuthor { get; set; }
 
-        //[BindProperty]
-        //public String SqlStrType { get; set; }
+        [BindProperty]
+        public String SqlStrType { get; set; }
 
-        //[BindProperty]
-        //public String SqlStrTags { get; set; }
+        [BindProperty]
+        public String SqlStrTags { get; set; }
 
-        //[BindProperty]
-        //public String SqlStrDate { get; set; }
+        [BindProperty]
+        public String SqlStrDate { get; set; }
 
 
-        private readonly IConfiguration _configuration;
-        private readonly ILogger<SearchSourceModel> _logger;
 
-        public SearchSourceModel(IConfiguration configuration, ILogger<SearchSourceModel> logger)
+    private readonly IConfiguration _configuration;
+
+        public SearchSourceModel(IConfiguration configuration)
         {
             _configuration = configuration;
-            _logger = logger;
             factory = new SourceDataAccessLayer(_configuration);
         }
 
@@ -61,23 +63,20 @@ namespace ResearchVault.Pages
         {
             Int32? uID = HttpContext.Session.GetInt32("UserID");
 
-            if (uID is null)
+            if (HttpContext.Session.GetInt32("UserID") is null)
             {
                 return RedirectToPage("/Admin/Index");
             }
-
-            try
+            else
             {
-                lstSource = factory.ListSources(uID, null).ToList();
+                lstSource = factory.ListSources(uID,null).ToList();
+                return Page();
             }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Unexpected error in SearchSource OnGet for UserID: {uID}", uID);
-                lstSource = new List<SourceModel>();
-                TempData["ErrorMessage"] = "An error occurred loading sources. Please try again.";
-            }
+            
 
-            return Page();
+            //SqlStr = "yes";
+            //return Page();
+
         }
 
         #nullable enable
@@ -87,26 +86,20 @@ namespace ResearchVault.Pages
         {
             Int32? uID = HttpContext.Session.GetInt32("UserID");
 
-            if (string.IsNullOrWhiteSpace(strTitle))
+            if (strTitle != null)
+            {
+                strTitle.Trim();
+                string str = "SELECT * FROM Source WHERE Title LIKE '%" + strTitle + "%'";
+                lstSource = factory.ListSources(uID, str).ToList();
+
+                SqlStr = str;
+                return Page();
+                
+            }
+            else
             {
                 return RedirectToPage("/Error");
             }
-
-            try
-            {
-                strTitle = strTitle.Trim();
-                string str = "SELECT * FROM Source WHERE Title LIKE '%" + strTitle + "%'";
-                lstSource = factory.ListSources(uID, str).ToList();
-                SqlStr = str;
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Unexpected error in SearchSource OnPostSearch for UserID: {uID}", uID);
-                lstSource = new List<SourceModel>();
-                TempData["ErrorMessage"] = "An error occurred during search. Please try again.";
-            }
-
-            return Page();
         }
 
 
@@ -116,57 +109,61 @@ namespace ResearchVault.Pages
             {
                 return RedirectToPage("/Error");
             }
-
-            try
+            else
             {
+
+
                 factory.DeleteSource(id);
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Unexpected error in SearchSource OnPostDelete for SourceID: {id}", id);
-                TempData["ErrorMessage"] = "An error occurred while deleting. Please try again.";
-                return Page();
-            }
+                //return Page();
+                return RedirectToPage("/SearchSource");
 
-            return RedirectToPage("/SearchSource");
+            }
         }
 
+        //public void OnPostDelete(int? id)
+        //{
 
+        //    factory.DeleteSource(id);
+        //}
+
+        
         public IActionResult OnPostFilter()
         {
             SqlStr = "SELECT * FROM Source";
 
             Int32? uID = HttpContext.Session.GetInt32("UserID");
 
+
             if (SqlStrTitleAZ == true || SqlStrTitleZA == true)
             {
                 SqlStr += " ORDER BY";
 
                 if (SqlStrTitleAZ == true)
+                {
                     SqlStr += " Title ASC";
+                }
                 else if (SqlStrTitleZA == true)
+                {
                     SqlStr += " Title DESC";
+                }
+
 
                 if (SqlStrCategoryAZ == true)
+                {
                     SqlStr += " Category ASC,";
+                }
                 else if (SqlStrCategoryZA == true)
+                {
                     SqlStr += " Category DESC,";
+                }
             }
-            else
+            else 
             {
                 SqlStr += "dedsed";
             }
 
-            try
-            {
-                lstSource = factory.ListSources(uID, SqlStr).ToList();
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Unexpected error in SearchSource OnPostFilter for UserID: {uID}", uID);
-                lstSource = new List<SourceModel>();
-                TempData["ErrorMessage"] = "An error occurred applying filters. Please try again.";
-            }
+
+            lstSource = factory.ListSources(uID, SqlStr).ToList();
 
             return Page();
         }

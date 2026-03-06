@@ -8,7 +8,6 @@ using System.Data.SqlClient;
 using ResearchVault.Models;
 
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
 using System.Reflection.PortableExecutable;
 using System.Net.Sockets;
 using Microsoft.Extensions.Configuration.UserSecrets;
@@ -24,28 +23,41 @@ namespace ResearchVault.Models
         readonly string? ConnectionString;
 
         private readonly IConfiguration _configuration;
-        private readonly ILogger<SourceDataAccessLayer> _logger;
 
 
-        public SourceDataAccessLayer(IConfiguration configuration, ILogger<SourceDataAccessLayer> logger = null)
+        public SourceDataAccessLayer(IConfiguration configuration)
         {
             _configuration = configuration;
-            _logger = logger;
             ConnectionString = _configuration.GetConnectionString("DefaultConnection");
         }
 
+        //title, author, link, date created, date added, type, category, tags, notes
 
-        // add source to the database
+        //add source to the database
         public void AddSource(SourceModel rSource, Int32? Uid)
         {
+
+            //creating sql connection as variable 'connection'
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
+                //string for sql command to add source to the database
                 string strSQL = "INSERT INTO Source (Title, Author, Publisher, Link, DateCreated, DateAdded, Type, Category, Tags, Favorite, Notes, UserID) VALUES (@Title, @Author, @publisher, @Link, @DateCreated, @DateAdded, @Type, @Category, @Tags, @Favorite, @Notes, @UserID);";
 
                 rSource.Feedback = "";
                 rSource.DateAdded = DateTime.Now;
 
-                try
+                //rSource.Title = null;
+                //rSource.Author = null;
+                //rSource.Publisher = null;
+                //rSource.Link = null;
+
+                //rSource.Type = null;
+                //rSource.Category = null;
+                //rSource.Tags = null;
+                //rSource.Favorite = false;
+                //rSource.Notes = null;
+
+                try     //test for connection to database and return error if cannot connect
                 {
                     using (SqlCommand command = new SqlCommand(strSQL, conn))
                     {
@@ -58,66 +70,78 @@ namespace ResearchVault.Models
                         command.Parameters.AddWithValue("@DateCreated", rSource.DateCreated);
                         command.Parameters.AddWithValue("@DateAdded", rSource.DateAdded);
                         command.Parameters.AddWithValue("@Type", rSource.Type);
-
+                        // Check if Category is null and inject DBNull.Value if true
                         if (rSource.Category == null)
+                        {
                             command.Parameters.AddWithValue("@Category", DBNull.Value);
+                        }
                         else
+                        {
                             command.Parameters.AddWithValue("@Category", rSource.Category);
+                        }
 
+                        // Check if Tags is null and inject DBNull.Value if true
                         if (rSource.Tags == null)
+                        {
                             command.Parameters.AddWithValue("@Tags", DBNull.Value);
+                        }
                         else
+                        {
                             command.Parameters.AddWithValue("@Tags", rSource.Tags);
+                        }
 
                         command.Parameters.AddWithValue("@Favorite", rSource.Favorite);
 
+                        // Check if Notes is null and inject DBNull.Value if true
                         if (rSource.Notes == null)
+                        {
                             command.Parameters.AddWithValue("@Notes", DBNull.Value);
+                        }
                         else
+                        {
                             command.Parameters.AddWithValue("@Notes", rSource.Notes);
+                        }
 
                         command.Parameters.AddWithValue("@UserID", Uid);
 
+
                         conn.Open();
+
                         rSource.Feedback = command.ExecuteNonQuery().ToString() + " Record Added";
+
                         conn.Close();
                     }
                 }
-                catch (SqlException sqlEx)
+                catch (Exception err)   //Error message
                 {
-                    // Log detailed error server-side — never expose to user
-                    _logger?.LogError(sqlEx, "Database error in AddSource for UserID: {Uid}", Uid);
-                    rSource.Feedback = "Unable to add source. Please try again.";
-                }
-                catch (InvalidOperationException ioEx)
-                {
-                    _logger?.LogError(ioEx, "Connection error in AddSource for UserID: {Uid}", Uid);
-                    rSource.Feedback = "A connection error occurred. Please try again.";
-                }
-                catch (Exception ex)
-                {
-                    _logger?.LogError(ex, "Unexpected error in AddSource for UserID: {Uid}", Uid);
-                    rSource.Feedback = "An unexpected error occurred. Please try again.";
+                    rSource.Feedback = "tERROR: " + err.Message;
                 }
             }
         }
 
 
-        // update source
+
+
+        //update source
         public void UpdateSource(SourceModel rSource)
         {
             try
             {
                 using (SqlConnection conn = new SqlConnection(ConnectionString))
                 {
+                    //create sql command variable
                     SqlCommand command = new SqlCommand();
 
+                    //rSource.DateAdded = DateTime.Now;
+
+                    //create sql update string 
                     string strSQL = "UPDATE Source SET Title = @Title, Author = @Author, Publisher = @Publisher, Link = @Link, DateCreated = @DateCreated, Type = @Type, Category = @Category, Tags = @Tags, Favorite = @Favorite, Notes = @Notes WHERE SourceID = @SourceID;";
 
                     command.CommandText = strSQL;
                     command.Connection = conn;
                     command.CommandType = CommandType.Text;
 
+                    //parameters to fill placeholders with values and send to database
                     command.Parameters.AddWithValue("@SourceID", rSource.SourceID);
                     command.Parameters.AddWithValue("@Title", rSource.Title);
                     command.Parameters.AddWithValue("@Author", rSource.Author);
@@ -126,47 +150,63 @@ namespace ResearchVault.Models
                     command.Parameters.AddWithValue("@DateCreated", rSource.DateCreated);
                     command.Parameters.AddWithValue("@Type", rSource.Type);
 
+                    // Check if Category is null and inject DBNull.Value if true
                     if (rSource.Category == null)
+                    {
                         command.Parameters.AddWithValue("@Category", DBNull.Value);
+                    }
                     else
+                    {
                         command.Parameters.AddWithValue("@Category", rSource.Category);
+                    }
 
+                    // Check if Tags is null and inject DBNull.Value if true
                     if (rSource.Tags == null)
+                    {
                         command.Parameters.AddWithValue("@Tags", DBNull.Value);
+                    }
                     else
+                    {
                         command.Parameters.AddWithValue("@Tags", rSource.Tags);
+                    }
 
                     command.Parameters.AddWithValue("@Favorite", rSource.Favorite);
 
+                    // Check if Notes is null and inject DBNull.Value if true
                     if (rSource.Notes == null)
+                    {
                         command.Parameters.AddWithValue("@Notes", DBNull.Value);
+                    }
                     else
+                    {
                         command.Parameters.AddWithValue("@Notes", rSource.Notes);
+                    }
+
+                    //command.Parameters.AddWithValue("@UserID", rSource.UserID);
 
                     conn.Open();
-                    rSource.Feedback = command.ExecuteNonQuery().ToString() + " Record Updated";
+                    rSource.Feedback = command.ExecuteNonQuery().ToString() + " Record Added";
+                    //command.ExecuteNonQuery();
                     conn.Close();
                 }
             }
-            catch (SqlException sqlEx)
+            catch (Exception err)
             {
-                _logger?.LogError(sqlEx, "Database error in UpdateSource for SourceID: {SourceID}", rSource.SourceID);
-                rSource.Feedback = "Unable to update source. Please try again.";
+                rSource.Feedback = "ERROR: " + err.Message;
             }
-            catch (InvalidOperationException ioEx)
-            {
-                _logger?.LogError(ioEx, "Connection error in UpdateSource for SourceID: {SourceID}", rSource.SourceID);
-                rSource.Feedback = "A connection error occurred. Please try again.";
-            }
-            catch (Exception ex)
-            {
-                _logger?.LogError(ex, "Unexpected error in UpdateSource for SourceID: {SourceID}", rSource.SourceID);
-                rSource.Feedback = "An unexpected error occurred. Please try again.";
-            }
+            
+
         }
 
 
-        // delete source from database
+        //string strSQL = "UPDATE Source SET Title = @Title, Author = @Author, Publisher = @Publisher, Link = @Link, DateCreated = @DateCreated, DateAdded = @DateAdded, Type = @Type, Category = @Category, Tags = @Tags, Favorite = @Favorite, Notes = @Notes WHERE SourceID = @SourceID;";
+        //command.Parameters.AddWithValue("@DateAdded", rSource.DateAdded);
+        //command.Parameters.AddWithValue("@Category", rSource.Category ?? DBNull.Value);
+        //command.Parameters.AddWithValue("@Tags", rSource.Tags ?? DBNull.Value);
+        //command.Parameters.AddWithValue("@Favorite", rSource.Favorite);
+        //command.Parameters.AddWithValue("@Notes", rSource.Notes ?? DBNull.Value);
+
+        //delete source from database
         public SourceModel DeleteSource(int? id)
         {
             SourceModel rSource = new SourceModel();
@@ -179,34 +219,29 @@ namespace ResearchVault.Models
                     SqlCommand comm = new SqlCommand(strSQL, conn);
 
                     comm.CommandType = CommandType.Text;
+
                     comm.Parameters.AddWithValue("@SourceID", id);
 
                     conn.Open();
                     comm.ExecuteNonQuery();
                     conn.Close();
+
                 }
             }
-            catch (SqlException sqlEx)
+            catch (Exception err)
             {
-                _logger?.LogError(sqlEx, "Database error in DeleteSource for SourceID: {id}", id);
-                rSource.Feedback = "Unable to delete source. Please try again.";
+                rSource.Feedback = "ERROR: " + err.Message;
             }
-            catch (InvalidOperationException ioEx)
-            {
-                _logger?.LogError(ioEx, "Connection error in DeleteSource for SourceID: {id}", id);
-                rSource.Feedback = "A connection error occurred. Please try again.";
-            }
-            catch (Exception ex)
-            {
-                _logger?.LogError(ex, "Unexpected error in DeleteSource for SourceID: {id}", id);
-                rSource.Feedback = "An unexpected error occurred. Please try again.";
-            }
-
             return rSource;
+
         }
 
 
-        // list Sources
+
+
+
+        //list Sources
+
         public IEnumerable<SourceModel> ListSources(Int32? uID, string? sqlStr)
         {
             List<SourceModel> sourceList = new List<SourceModel>();
@@ -228,6 +263,10 @@ namespace ResearchVault.Models
                 using SqlCommand cmd = new SqlCommand(strSQL, con);
 
                 cmd.CommandType = CommandType.Text;
+
+                //check to set user id
+                if (sqlStr == null)
+                    cmd.Parameters.AddWithValue("@uID", uID);
 
                 con.Open();
                 using SqlDataReader dr = cmd.ExecuteReader();
@@ -255,28 +294,18 @@ namespace ResearchVault.Models
                     sourceList.Add(rSource);
                 }
             }
-            catch (SqlException sqlEx)
+            catch (Exception err)
             {
-                // Do NOT add the raw error to sourceList — that leaks DB details to the UI
-                _logger?.LogError(sqlEx, "Database error in ListSources for UserID: {uID}", uID);
-                sourceList.Add(new SourceModel { Feedback = "Unable to retrieve sources. Please try again." });
-            }
-            catch (InvalidOperationException ioEx)
-            {
-                _logger?.LogError(ioEx, "Connection error in ListSources for UserID: {uID}", uID);
-                sourceList.Add(new SourceModel { Feedback = "A connection error occurred. Please try again." });
-            }
-            catch (Exception ex)
-            {
-                _logger?.LogError(ex, "Unexpected error in ListSources for UserID: {uID}", uID);
-                sourceList.Add(new SourceModel { Feedback = "An unexpected error occurred. Please try again." });
+                sourceList.Add(new SourceModel { Feedback = "ERROR: " + err.Message });
             }
 
             return sourceList;
         }
 
 
-        // get single source for edit
+
+
+        //edit Source
         public SourceModel GetOneSource(int? id)
         {
             SourceModel rSource = new SourceModel();
@@ -289,6 +318,7 @@ namespace ResearchVault.Models
                     SqlCommand comm = new SqlCommand(strSQL, conn);
 
                     comm.CommandType = CommandType.Text;
+
                     comm.Parameters.AddWithValue("@SourceID", id);
 
                     conn.Open();
@@ -321,33 +351,21 @@ namespace ResearchVault.Models
 
                         rSource.Notes = dr["Notes"].ToString();
                         rSource.UserID = Convert.ToInt32(dr["UserID"]);
+
+                        
+                        //rSource.Feedback += dr["DateCreated"].ToString();
                     }
                     conn.Close();
                 }
             }
-            catch (SqlException sqlEx)
+            catch (Exception err)
             {
-                _logger?.LogError(sqlEx, "Database error in GetOneSource for SourceID: {id}", id);
-                rSource.Feedback = "Unable to retrieve source. Please try again.";
-            }
-            catch (FormatException fEx)
-            {
-                _logger?.LogError(fEx, "Data format error in GetOneSource for SourceID: {id}", id);
-                rSource.Feedback = "Source data could not be loaded. Please try again.";
-            }
-            catch (InvalidOperationException ioEx)
-            {
-                _logger?.LogError(ioEx, "Connection error in GetOneSource for SourceID: {id}", id);
-                rSource.Feedback = "A connection error occurred. Please try again.";
-            }
-            catch (Exception ex)
-            {
-                _logger?.LogError(ex, "Unexpected error in GetOneSource for SourceID: {id}", id);
-                rSource.Feedback = "An unexpected error occurred. Please try again.";
+                rSource.Feedback += err.Message;
             }
 
             return rSource;
         }
+
 
     }
 }

@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
 using ResearchVault.Models;
 using Microsoft.AspNetCore.Identity;
 
@@ -18,12 +17,10 @@ namespace ResearchVault.Models
         readonly string ConnectionString;
 
         private readonly IConfiguration _configuration;
-        private readonly ILogger<UserDataAccessLayer> _logger;
 
-        public UserDataAccessLayer(IConfiguration configuration, ILogger<UserDataAccessLayer> logger = null)
+        public UserDataAccessLayer(IConfiguration configuration)
         {
             _configuration = configuration;
-            _logger = logger;
             ConnectionString = _configuration.GetConnectionString("DefaultConnection");
         }
 
@@ -32,8 +29,10 @@ namespace ResearchVault.Models
         //add user to the database
         public void AddUser(UserModel rUser)
         {
+            //creating sql connection as variable 'connection'
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
+                //string for sql command to add source to the database
                 string strSQL = "INSERT Into Users (FName, LName, Email, Username, Password, Permissions) VALUES (@FName, @LName, @Email, @Username, @Password, @Permissions);";
 
                 rUser.Feedback = "";
@@ -55,27 +54,19 @@ namespace ResearchVault.Models
                         command.Parameters.AddWithValue("@Permissions", rUser.Permissions);
 
                         conn.Open();
+
                         rUser.Feedback = command.ExecuteNonQuery().ToString() + " User Added";
+
                         conn.Close();
                     }
                 }
-                catch (SqlException sqlEx)
+                catch (Exception err)   //Error message
                 {
-                    _logger?.LogError(sqlEx, "Database error in AddUser for Username: {Username}", rUser.Username);
-                    rUser.Feedback = "Unable to create account. Please try again.";
-                }
-                catch (InvalidOperationException ioEx)
-                {
-                    _logger?.LogError(ioEx, "Connection error in AddUser for Username: {Username}", rUser.Username);
-                    rUser.Feedback = "A connection error occurred. Please try again.";
-                }
-                catch (Exception ex)
-                {
-                    _logger?.LogError(ex, "Unexpected error in AddUser for Username: {Username}", rUser.Username);
-                    rUser.Feedback = "An unexpected error occurred. Please try again.";
+                    rUser.Feedback = "ERROR: " + err.Message;
                 }
             }
         }
+
 
 
         // update user
@@ -85,6 +76,7 @@ namespace ResearchVault.Models
             {
                 using (SqlConnection conn = new SqlConnection(ConnectionString))
                 {
+                    // create SQL command variable
                     SqlCommand command = new SqlCommand();
 
                     // create SQL update string
@@ -108,22 +100,13 @@ namespace ResearchVault.Models
                     conn.Close();
                 }
             }
-            catch (SqlException sqlEx)
+            catch (Exception err)
             {
-                _logger?.LogError(sqlEx, "Database error in UpdateUser for UserID: {UserID}", rUser.UserID);
-                rUser.Feedback = "Unable to update user. Please try again.";
-            }
-            catch (InvalidOperationException ioEx)
-            {
-                _logger?.LogError(ioEx, "Connection error in UpdateUser for UserID: {UserID}", rUser.UserID);
-                rUser.Feedback = "A connection error occurred. Please try again.";
-            }
-            catch (Exception ex)
-            {
-                _logger?.LogError(ex, "Unexpected error in UpdateUser for UserID: {UserID}", rUser.UserID);
-                rUser.Feedback = "An unexpected error occurred. Please try again.";
+                rUser.Feedback = "ERROR: " + err.Message;
             }
         }
+
+
 
 
         // delete user from database
@@ -139,34 +122,27 @@ namespace ResearchVault.Models
                     SqlCommand comm = new SqlCommand(strSQL, conn);
 
                     comm.CommandType = CommandType.Text;
+
                     comm.Parameters.AddWithValue("@UserID", id);
 
                     conn.Open();
                     comm.ExecuteNonQuery();
                     conn.Close();
+
                 }
             }
-            catch (SqlException sqlEx)
+            catch (Exception err)
             {
-                _logger?.LogError(sqlEx, "Database error in DeleteUser for UserID: {id}", id);
-                rUser.Feedback = "Unable to delete user. Please try again.";
+                rUser.Feedback = "ERROR: " + err.Message;
             }
-            catch (InvalidOperationException ioEx)
-            {
-                _logger?.LogError(ioEx, "Connection error in DeleteUser for UserID: {id}", id);
-                rUser.Feedback = "A connection error occurred. Please try again.";
-            }
-            catch (Exception ex)
-            {
-                _logger?.LogError(ex, "Unexpected error in DeleteUser for UserID: {id}", id);
-                rUser.Feedback = "An unexpected error occurred. Please try again.";
-            }
-
             return rUser;
         }
 
 
-        // list Users
+
+
+
+        //list Users
         public IEnumerable<UserModel> ListUsers(string? sqlStr)
         {
             List<UserModel> userList = new List<UserModel>();
@@ -211,20 +187,9 @@ namespace ResearchVault.Models
                     conn.Close();
                 }
             }
-            catch (SqlException sqlEx)
+            catch (Exception err)
             {
-                _logger?.LogError(sqlEx, "Database error in ListUsers");
-                userList.Add(new UserModel { Feedback = "Unable to retrieve users. Please try again." });
-            }
-            catch (InvalidOperationException ioEx)
-            {
-                _logger?.LogError(ioEx, "Connection error in ListUsers");
-                userList.Add(new UserModel { Feedback = "A connection error occurred. Please try again." });
-            }
-            catch (Exception ex)
-            {
-                _logger?.LogError(ex, "Unexpected error in ListUsers");
-                userList.Add(new UserModel { Feedback = "An unexpected error occurred. Please try again." });
+                userList.Add(new UserModel { Feedback = "ERROR: " + err.Message });
             }
 
             return userList;
@@ -272,6 +237,7 @@ namespace ResearchVault.Models
                     SqlCommand comm = new SqlCommand(strSQL, conn);
 
                     comm.CommandType = CommandType.Text;
+
                     comm.Parameters.AddWithValue("@UserID", id);
 
                     conn.Open();
@@ -290,24 +256,14 @@ namespace ResearchVault.Models
                     conn.Close();
                 }
             }
-            catch (SqlException sqlEx)
+            catch (Exception err)
             {
-                _logger?.LogError(sqlEx, "Database error in GetOneUser for UserID: {id}", id);
-                rUser.Feedback = "Unable to retrieve user. Please try again.";
-            }
-            catch (InvalidOperationException ioEx)
-            {
-                _logger?.LogError(ioEx, "Connection error in GetOneUser for UserID: {id}", id);
-                rUser.Feedback = "A connection error occurred. Please try again.";
-            }
-            catch (Exception ex)
-            {
-                _logger?.LogError(ex, "Unexpected error in GetOneUser for UserID: {id}", id);
-                rUser.Feedback = "An unexpected error occurred. Please try again.";
+                rUser.Feedback += err.Message;
             }
 
             return rUser;
         }
+
 
     }
 }
