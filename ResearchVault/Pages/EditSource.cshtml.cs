@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Session;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using ResearchVault.Models;
 
 namespace ResearchVault.Pages
@@ -21,102 +22,98 @@ namespace ResearchVault.Pages
         [BindProperty]
         public SourceModel rSource { get; set; }
 
-
         //create data access layer as factory
         SourceDataAccessLayer factory;
-
 
         //var for setting status of forms
         [BindProperty(SupportsGet = true)]
         public String ValidStatus { get; set; }
 
-
         [BindProperty]
         public Int32 sourceID { get; set; }
 
 
-
         private readonly IConfiguration _configuration;
+        private readonly ILogger<EditSourceModel> _logger;
 
-        public EditSourceModel(IConfiguration configuration)
+        public EditSourceModel(IConfiguration configuration, ILogger<EditSourceModel> logger)
         {
             _configuration = configuration;
+            _logger = logger;
             factory = new SourceDataAccessLayer(_configuration);
         }
 
 
-
         public IActionResult OnGet(int? id)
         {
-            //sourceID = Convert.ToInt32(id);
-
             if (id == null)
             {
                 return RedirectToPage("/Error");
             }
-            else
+
+            try
             {
                 rSource = factory.GetOneSource(id);
+
+                if (rSource == null || rSource.SourceID == 0)
+                {
+                    return RedirectToPage("/Error");
+                }
             }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Unexpected error in EditSource OnGet for SourceID: {id}", id);
+                return RedirectToPage("/Error");
+            }
+
             return Page();
         }
 
 
-        //edit post
+        // edit post
         public IActionResult OnPostEdit()
         {
             if (!ModelState.IsValid)
             {
                 return Page();
             }
-            else //if (HttpContext.Session.GetInt32("UserID") == rSource.UserID)
+
+            try
             {
                 factory.UpdateSource(rSource);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Unexpected error in EditSource OnPostEdit for SourceID: {SourceID}", rSource?.SourceID);
+                rSource.Feedback = "An error occurred while saving. Please try again.";
+                return Page();
             }
 
             return Page();
         }
 
 
-        //delete post
+        // delete post
         public IActionResult OnPostDelete(int? id)
         {
             if (id == null)
             {
                 return Page();
             }
-            else
+
+            try
             {
                 factory.DeleteSource(id);
-                return RedirectToPage("/SearchSource");
-
             }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Unexpected error in EditSource OnPostDelete for SourceID: {id}", id);
+                TempData["ErrorMessage"] = "An error occurred while deleting. Please try again.";
+                return Page();
+            }
+
+            return RedirectToPage("/SearchSource");
         }
-
-
-
-        //public IActionResult OnPost()
-        //{
-            
-        //    if (!ModelState.IsValid)
-        //    {
-        //        foreach (var modelStateEntry in ModelState.Values)
-        //        {
-        //            foreach (var error in modelStateEntry.Errors)
-        //            {
-        //                var errorMessage = error.ErrorMessage;
-
-        //                ErrorMessage = errorMessage;
-
-        //            }
-        //        }
-        //        //return RedirectToPage("/index");
-        //        return Page();
-        //    }
-
-            
-        //    return Page();
-        //}
 
     }
 }

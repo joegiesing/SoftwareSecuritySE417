@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using ResearchVault.Models;
 
 namespace ResearchVault.Pages.Admin
@@ -22,12 +23,13 @@ namespace ResearchVault.Pages.Admin
 
         UserDataAccessLayer factory;
 
-
         private readonly IConfiguration _configuration;
+        private readonly ILogger<ControlPanelModel> _logger;
 
-        public ControlPanelModel(IConfiguration configuration)
+        public ControlPanelModel(IConfiguration configuration, ILogger<ControlPanelModel> logger)
         {
             _configuration = configuration;
+            _logger = logger;
             factory = new UserDataAccessLayer(_configuration);
         }
 
@@ -37,68 +39,47 @@ namespace ResearchVault.Pages.Admin
             {
                 return RedirectToPage("/Index");
             }
-            else
-            {
-                if (HttpContext.Session.GetInt32("Permissions") is null || HttpContext.Session.GetInt32("Permissions") < 2)
-                {
-                    return RedirectToPage("/Index");
-                }
-                else
-                {
-                    lstUser = factory.ListUsers(null).ToList();
-                    return Page();
-                }
-                //else
-                //{
-                //    return RedirectToPage("/Index");
-                //}
-            }
-            
 
+            if (HttpContext.Session.GetInt32("Permissions") is null || HttpContext.Session.GetInt32("Permissions") < 2)
+            {
+                return RedirectToPage("/Index");
+            }
+
+            try
+            {
+                lstUser = factory.ListUsers(null).ToList();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Unexpected error in ControlPanel OnGet");
+                lstUser = new List<UserModel>();
+                TempData["ErrorMessage"] = "An error occurred loading users. Please try again.";
+            }
+
+            return Page();
         }
 
-        //[HttpGet("/Admin/ControlPanel/{id}")]
-        //public IActionResult OnGetEdit(int id)
-        //{
-        //    //lstUser = factory.ListUsers(null).ToList();
-        //    rUser = factory.GetOneUser(id);
-        //    if (rUser == null)
-        //    {
-        //        return RedirectToPage("/Error");
-        //    }
-        //    else
-        //    {
-        //        return Page();
-        //    }
-
-        //    //if (id == null)
-        //    //{
-        //    //    return Page();
-        //    //}
-        //    //else
-        //    //{
-        //    //    //lstUser = factory.ListUsers(null).ToList();
-        //    //    rUser = factory.GetOneUser(id);
-        //    //    return RedirectToPage("/Error");
-        //    //}
-        //}
 
         public IActionResult OnPostEdit(Int32? id)
         {
             if (id == null)
             {
-                //return Page();
                 return RedirectToPage("/Error");
             }
-            else
+
+            try
             {
                 rUser = factory.GetOneUser(id);
                 lstUser = factory.ListUsers(null).ToList();
-                //int id = rUser.UserID; // Get the ID from the rUser object
-                //return RedirectToPage("/Admin/ControlPanel", new { id });
-                //return RedirectToPage("/Admin/ControlPanel");
-                return Page();
             }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Unexpected error in ControlPanel OnPostEdit for UserID: {id}", id);
+                TempData["ErrorMessage"] = "An error occurred loading user data. Please try again.";
+                return RedirectToPage("/Error");
+            }
+
+            return Page();
         }
 
         public IActionResult OnPostDelete(Int32? id)
@@ -107,13 +88,20 @@ namespace ResearchVault.Pages.Admin
             {
                 return RedirectToPage("/Error");
             }
-            else
+
+            try
             {
                 factory.DeleteUser(id);
                 lstUser = factory.ListUsers(null).ToList();
-                
-                return Page();
             }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Unexpected error in ControlPanel OnPostDelete for UserID: {id}", id);
+                TempData["ErrorMessage"] = "An error occurred while deleting the user. Please try again.";
+                lstUser = new List<UserModel>();
+            }
+
+            return Page();
         }
 
         public IActionResult OnPostUpdate()
@@ -122,13 +110,20 @@ namespace ResearchVault.Pages.Admin
             {
                 return RedirectToPage("/Error");
             }
-            else
+
+            try
             {
                 factory.UpdateUser(rUser);
                 lstUser = factory.ListUsers(null).ToList();
-
-                return Page();
             }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Unexpected error in ControlPanel OnPostUpdate for UserID: {UserID}", rUser?.UserID);
+                TempData["ErrorMessage"] = "An error occurred while updating the user. Please try again.";
+                lstUser = new List<UserModel>();
+            }
+
+            return Page();
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -12,13 +13,14 @@ namespace ResearchVault.Models
         string ConnectionString;
 
         private readonly IConfiguration _configuration;
+        private readonly ILogger<UserPassDataAccessLayer> _logger;
 
-        public UserPassDataAccessLayer(IConfiguration configuration)
+        public UserPassDataAccessLayer(IConfiguration configuration, ILogger<UserPassDataAccessLayer> logger = null)
         {
             _configuration = configuration;
+            _logger = logger;
             ConnectionString = _configuration.GetConnectionString("DefaultConnection");
         }
-
 
 
         public IEnumerable<UserPassModel> GetUserLogin(UserPassModel rUser)
@@ -54,9 +56,21 @@ namespace ResearchVault.Models
                     conn.Close();
                 }
             }
-            catch (Exception err)
+            catch (SqlException sqlEx)
             {
-                rUser.Feedback = "ERROR: " + err.Message;
+                //IMPORTANT: Do not expose login-specific errors
+                _logger?.LogError(sqlEx, "Database error in GetUserLogin for Email: {Email}", rUser.Email);
+                rUser.Feedback = "Login failed. Please check your credentials and try again.";
+            }
+            catch (InvalidOperationException ioEx)
+            {
+                _logger?.LogError(ioEx, "Connection error in GetUserLogin");
+                rUser.Feedback = "A connection error occurred. Please try again.";
+            }
+            catch (Exception ex)
+            {
+                _logger?.LogError(ex, "Unexpected error in GetUserLogin");
+                rUser.Feedback = "An unexpected error occurred. Please try again.";
             }
 
             return lstUserModel;
