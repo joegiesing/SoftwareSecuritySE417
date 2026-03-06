@@ -128,11 +128,10 @@
 
     <script>
         function hideAdminPage() {
-            var permissions = @Context.Request.HttpContext.Session.GetInt32("Permissions");
+            var permissions = @(Context.Request.HttpContext.Session.GetInt32("Permissions") ?? 0);
             var adminPageElement = document.getElementById("AdminPage");
 
-            //show admin link for primary and secondary. hide for basic
-            if (permissions === null || permissions < 1) {
+            if (adminPageElement && permissions < 2) {
                 adminPageElement.style.display = "none";
             }
         }
